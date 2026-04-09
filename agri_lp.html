@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ドローカル、津軽。｜DRAWCAL モニターツアー 2026</title>
+  <meta name="description" content="りんご農家と飲んで、作業して、温泉に入る。青森・黒石の2泊3日。DRAWCAL モニターツアー2026。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;700&family=Noto+Sans+JP:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --cream:   #F5F0E8;
+      --earth:   #2C2416;
+      --brown:   #6B4C2A;
+      --green:   #3A5A3A;
+      --sage:    #7A8C6E;
+      --warm:    #C8A96E;
+      --red:     #C0392B;
+      --white:   #FDFCF8;
+      --fs-hero: clamp(3rem, 10vw, 7rem);
+      --fs-sub:  clamp(1rem, 2.5vw, 1.5rem);
+      --fs-h2:   clamp(1.6rem, 4vw, 2.8rem);
+      --fs-h3:   clamp(1.1rem, 2.5vw, 1.6rem);
+      --fs-body: clamp(0.9rem, 1.5vw, 1.05rem);
+      --gap:     clamp(4rem, 10vw, 9rem);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background: var(--cream);
+      color: var(--earth);
+      line-height: 1.8;
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+    img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    /* ===== PLACEHOLDER ===== */
+    .img-placeholder {
+      background: #d6cfc2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 1rem;
+      color: #6B5D4F;
+      font-size: 0.75rem;
+      font-family: 'Noto Sans JP', sans-serif;
+      gap: 0.5rem;
+    }
+    .img-placeholder .label {
+      font-size: 0.65rem;
+      background: rgba(255,255,255,0.5);
+      padding: 0.2rem 0.6rem;
+      border-radius: 20px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+    }
+    .img-placeholder .desc {
+      font-size: 0.7rem;
+      opacity: 0.7;
+      max-width: 180px;
+      line-height: 1.4;
+    }
+
+    /* ===== NAV ===== */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.2rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      mix-blend-mode: normal;
+      transition: background 0.3s, box-shadow 0.3s;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .nav-about {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      padding: 0.5rem 1.2rem;
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 2px;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+    .nav-about:hover { background: rgba(255,255,255,0.12); }
+    nav.scrolled .nav-about {
+      color: var(--earth);
+      border-color: rgba(44,36,22,0.3);
+    }
+    nav.scrolled .nav-about:hover { background: rgba(44,36,22,0.06); }
+    nav.scrolled {
+      background: rgba(245,240,232,0.96);
+      box-shadow: 0 1px 12px rgba(0,0,0,0.08);
+      backdrop-filter: blur(8px);
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      letter-spacing: 0.1em;
+      color: var(--white);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    nav.scrolled .nav-logo { color: var(--earth); }
+    .nav-cta {
+      background: var(--green);
+      color: var(--white);
+      text-decoration: none;
+      padding: 0.5rem 1.4rem;
+      border-radius: 2px;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      transition: background 0.2s;
+      font-weight: 400;
+    }
+    .nav-cta:hover { background: var(--brown); }
+
+    /* ===== HERO ===== */
+    #hero {
+      position: relative;
+      height: 100svh;
+      min-height: 600px;
+      display: flex;
+      align-items: flex-end;
+      padding: 0 0 6rem;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+    }
+    /* 画像が入るまでのプレースホルダー */
+    .hero-bg .img-placeholder {
+      font-size: 0.8rem;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.1) 0%,
+        rgba(0,0,0,0.0) 40%,
+        rgba(0,0,0,0.55) 100%
+      );
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 clamp(1.5rem, 6vw, 6rem);
+      max-width: 900px;
+    }
+    .hero-badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      color: rgba(255,255,255,0.85);
+      border: 1px solid rgba(255,255,255,0.5);
+      padding: 0.3rem 0.9rem;
+      margin-bottom: 1.2rem;
+      border-radius: 1px;
+    }
+    .hero-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: var(--fs-hero);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+    .hero-sub {
+      font-size: var(--fs-sub);
+      color: rgba(255,255,255,0.88);
+      font-weight: 300;
+      letter-spacing: 0.03em;
+      line-height: 1.6;
+    }
+    .hero-scroll {
+      position: absolute;
+      bottom: 2rem;
+      right: clamp(1.5rem, 5vw, 5rem);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: rgba(255,255,255,0.6);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      z-index: 2;
+    }
+    .hero-scroll::after {
+      content: '';
+      display: block;
+      width: 1px;
+      height: 50px;
+      background: rgba(255,255,255,0.4);
+      animation: scrollLine 1.5s ease-in-out infinite;
+    }
+    @keyframes scrollLine {
+      0%   { transform: scaleY(0); transform-origin: top; }
+      50%  { transform: scaleY(1); transform-origin: top; }
+      51%  { transform: scaleY(1); transform-origin: bottom; }
+      100% { transform: scaleY(0); transform-origin: bottom; }
+    }
+
+    /* ===== SECTION BASE ===== */
+    section { padding: var(--gap) clamp(1.5rem, 8vw, 8rem); }
+    .section-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.3em;
+      color: var(--sage);
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .section-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: var(--fs-h2);
+      font-weight: 400;
+      line-height: 1.35;
+      margin-bottom: 1.5rem;
+      color: var(--earth);
+    }
+    .section-body {
+      font-size: var(--fs-body);
+      color: #4a3f30;
+      max-width: 600px;
+      line-height: 1.9;
+    }
+
+    /* ===== INTRO ===== */
+    #intro {
+      background: var(--earth);
+      color: var(--cream);
+      padding: clamp(4rem, 8vw, 7rem) clamp(1.5rem, 8vw, 8rem);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    #intro .section-title { color: var(--cream); }
+    #intro .section-body  { color: rgba(245,240,232,0.8); max-width: 100%; }
+    .intro-keywords {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 2rem;
+    }
+    .intro-keywords span {
+      border: 1px solid rgba(245,240,232,0.3);
+      padding: 0.3rem 0.9rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      border-radius: 1px;
+      color: rgba(245,240,232,0.7);
+    }
+    .intro-img {
+      height: clamp(280px, 40vw, 520px);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    /* ===== DAYS ===== */
+    #days { background: var(--white); }
+    .days-header { margin-bottom: 4rem; }
+    .day-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(2rem, 5vw, 5rem);
+      align-items: center;
+      margin-bottom: clamp(4rem, 8vw, 7rem);
+    }
+    .day-block:last-child { margin-bottom: 0; }
+    .day-block.reverse { direction: rtl; }
+    .day-block.reverse > * { direction: ltr; }
+    .day-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(4rem, 10vw, 7rem);
+      font-weight: 300;
+      color: var(--warm);
+      line-height: 1;
+      opacity: 0.4;
+      margin-bottom: 0.3rem;
+    }
+    .day-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.25em;
+      color: var(--sage);
+      margin-bottom: 0.8rem;
+      display: block;
+      text-transform: uppercase;
+    }
+    .day-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: var(--fs-h3);
+      font-weight: 400;
+      margin-bottom: 1rem;
+      line-height: 1.4;
+    }
+    .day-body {
+      font-size: var(--fs-body);
+      color: #4a3f30;
+      line-height: 1.9;
+      margin-bottom: 1.2rem;
+    }
+    .day-img {
+      height: clamp(260px, 38vw, 500px);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    /* ===== MOMENTS ===== */
+    #moments { background: var(--cream); }
+    .moments-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .moment-card {
+      background: var(--white);
+      border-radius: 2px;
+      overflow: hidden;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .moment-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.09);
+    }
+    .moment-card-img {
+      height: 200px;
+      overflow: hidden;
+    }
+    .moment-card-body {
+      padding: 1.2rem 1.4rem 1.6rem;
+    }
+    .moment-card-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1rem;
+      font-weight: 400;
+      margin-bottom: 0.5rem;
+      line-height: 1.4;
+    }
+    .moment-card-desc {
+      font-size: 0.82rem;
+      color: #6B5D4F;
+      line-height: 1.7;
+    }
+
+    /* ===== FARMER ===== */
+    #farmer {
+      background: var(--green);
+      color: var(--cream);
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: clamp(3rem, 6vw, 6rem);
+      align-items: center;
+      padding: clamp(4rem, 8vw, 7rem) clamp(1.5rem, 8vw, 8rem);
+    }
+    .farmer-img {
+      height: clamp(320px, 45vw, 560px);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    #farmer .section-label { color: rgba(245,240,232,0.5); }
+    #farmer .section-title { color: var(--cream); }
+    .farmer-profile {
+      font-size: var(--fs-body);
+      color: rgba(245,240,232,0.82);
+      line-height: 1.9;
+      margin-bottom: 2rem;
+    }
+    .farmer-quote {
+      border-left: 2px solid var(--warm);
+      padding-left: 1.4rem;
+      margin-top: 2rem;
+    }
+    .farmer-quote p {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+      font-weight: 300;
+      color: rgba(245,240,232,0.9);
+      line-height: 1.85;
+      font-style: italic;
+    }
+    .farmer-quote cite {
+      display: block;
+      margin-top: 0.8rem;
+      font-size: 0.72rem;
+      color: rgba(245,240,232,0.45);
+      letter-spacing: 0.1em;
+      font-style: normal;
+    }
+
+    /* ===== OVERVIEW ===== */
+    #overview { background: var(--white); }
+    .overview-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      margin-top: 3rem;
+      align-items: start;
+    }
+    .overview-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: var(--fs-body);
+    }
+    .overview-table tr {
+      border-bottom: 1px solid rgba(44,36,22,0.08);
+    }
+    .overview-table td {
+      padding: 0.9rem 0;
+      vertical-align: top;
+    }
+    .overview-table td:first-child {
+      width: 110px;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      color: var(--sage);
+      padding-right: 1rem;
+      font-weight: 400;
+      white-space: nowrap;
+    }
+    .overview-table td:last-child {
+      color: var(--earth);
+      font-weight: 300;
+      line-height: 1.7;
+    }
+    .overview-img {
+      height: clamp(280px, 38vw, 460px);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    /* ===== SCHEDULE ===== */
+    #schedule { background: var(--cream); }
+    .schedule-tabs {
+      display: flex;
+      gap: 0;
+      margin: 2.5rem 0 2rem;
+      border-bottom: 1px solid rgba(44,36,22,0.12);
+    }
+    .tab-btn {
+      background: none;
+      border: none;
+      padding: 0.8rem 1.6rem;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      color: var(--sage);
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .tab-btn.active {
+      color: var(--earth);
+      border-bottom-color: var(--green);
+      font-weight: 500;
+    }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+    .schedule-day { margin-bottom: 2.5rem; }
+    .schedule-day-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--green);
+      margin-bottom: 1rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid rgba(58,90,58,0.2);
+      letter-spacing: 0.05em;
+    }
+    .schedule-row {
+      display: grid;
+      grid-template-columns: 100px 1fr auto;
+      gap: 0.8rem;
+      align-items: baseline;
+      padding: 0.55rem 0;
+      font-size: 0.85rem;
+      border-bottom: 1px solid rgba(44,36,22,0.05);
+    }
+    .schedule-time {
+      color: var(--sage);
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+    }
+    .schedule-item { color: var(--earth); line-height: 1.5; }
+    .schedule-note {
+      font-size: 0.68rem;
+      color: var(--sage);
+      text-align: right;
+      white-space: nowrap;
+    }
+    /* ===== CTA ===== */
+    #cta {
+      background: var(--earth);
+      text-align: center;
+      padding: clamp(5rem, 10vw, 9rem) clamp(1.5rem, 8vw, 8rem);
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-bg {
+      position: absolute;
+      inset: 0;
+      opacity: 0.15;
+    }
+    .cta-inner { position: relative; z-index: 2; }
+    .cta-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.3em;
+      color: var(--warm);
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+      display: block;
+    }
+    .cta-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(1.8rem, 5vw, 3.2rem);
+      font-weight: 300;
+      color: var(--cream);
+      line-height: 1.4;
+      margin-bottom: 1rem;
+    }
+    .cta-body {
+      font-size: var(--fs-body);
+      color: rgba(245,240,232,0.7);
+      max-width: 520px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.9;
+    }
+    .cta-btn {
+      display: inline-block;
+      background: var(--warm);
+      color: var(--earth);
+      text-decoration: none;
+      padding: 1rem 3rem;
+      font-size: 0.88rem;
+      letter-spacing: 0.12em;
+      font-weight: 500;
+      border-radius: 2px;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .cta-btn:hover {
+      background: #D4B37A;
+      transform: translateY(-2px);
+    }
+    .cta-note {
+      margin-top: 1.2rem;
+      font-size: 0.72rem;
+      color: rgba(245,240,232,0.4);
+      letter-spacing: 0.05em;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--earth);
+      padding: 2.5rem clamp(1.5rem, 8vw, 8rem);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      letter-spacing: 0.1em;
+      color: rgba(245,240,232,0.6);
+    }
+    .footer-copy {
+      font-size: 0.68rem;
+      color: rgba(245,240,232,0.3);
+      letter-spacing: 0.08em;
+    }
+
+    /* ===== ANIMATIONS ===== */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: none; }
+
+    /* ===== DAY2 縦並びレイアウト ===== */
+    .day-block-v { margin-bottom: clamp(4rem, 8vw, 7rem); }
+    .day-block-v:last-child { margin-bottom: 0; }
+    .day-text-center {
+      max-width: 680px;
+      margin: 0 auto clamp(2rem, 4vw, 3rem);
+    }
+    .day-img-feat {
+      height: clamp(260px, 44vw, 560px);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    @media (max-width: 767px) {
+      .day-text-center { margin-bottom: 1.5rem; }
+      .day-img-feat { height: 240px; }
+    }
+
+    /* ===== HAMBURGER MENU ===== */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 36px;
+      height: 36px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      z-index: 200;
+    }
+    .hamburger span {
+      display: block;
+      width: 100%;
+      height: 1.5px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: transform 0.3s, opacity 0.3s, background 0.3s;
+      transform-origin: center;
+    }
+    nav.scrolled .hamburger span { background: var(--earth); }
+    .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    /* モバイルドロワーメニュー */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: var(--earth);
+      z-index: 150;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+    }
+    .mobile-menu.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .mobile-menu a {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(1.4rem, 6vw, 2rem);
+      font-weight: 300;
+      color: var(--cream);
+      text-decoration: none;
+      letter-spacing: 0.1em;
+      transition: color 0.2s;
+    }
+    .mobile-menu a:hover { color: var(--warm); }
+    .mobile-menu .mobile-cta {
+      margin-top: 1rem;
+      background: var(--warm);
+      color: var(--earth);
+      padding: 0.9rem 2.5rem;
+      border-radius: 2px;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+    }
+
+    /* ===== RESPONSIVE — TABLET (〜1024px) ===== */
+    @media (max-width: 1024px) {
+      :root { --gap: clamp(3.5rem, 8vw, 6rem); }
+
+      /* NAV */
+      .nav-about { padding: 0.45rem 1rem; font-size: 0.74rem; }
+      .nav-cta   { padding: 0.45rem 1.1rem; font-size: 0.74rem; }
+
+      /* INTRO */
+      #intro { gap: 2.5rem; }
+      .intro-img { height: clamp(260px, 36vw, 400px); }
+
+      /* DAYS */
+      .day-block { gap: 2.5rem; }
+      .day-img   { height: clamp(240px, 32vw, 400px); }
+
+      /* MOMENTS */
+      .moments-grid { grid-template-columns: repeat(2, 1fr); }
+
+      /* FARMER */
+      #farmer { gap: 2.5rem; }
+      .farmer-img { height: clamp(280px, 38vw, 460px); }
+
+      /* OVERVIEW */
+      .overview-grid { gap: 2.5rem; }
+      .overview-img { height: clamp(240px, 30vw, 360px); }
+
+      /* SCHEDULE */
+      .schedule-row { font-size: 0.82rem; }
+      .schedule-note { font-size: 0.65rem; }
+    }
+
+    /* ===== RESPONSIVE — MOBILE (〜767px) ===== */
+    @media (max-width: 767px) {
+      :root {
+        --gap: clamp(3rem, 10vw, 4.5rem);
+        --fs-hero: clamp(2.6rem, 12vw, 4rem);
+        --fs-h2:   clamp(1.4rem, 6vw, 2rem);
+        --fs-h3:   clamp(1.1rem, 4.5vw, 1.4rem);
+        --fs-body: 0.92rem;
+      }
+
+      /* NAV — ハンバーガーに切り替え */
+      .nav-links  { display: none; }
+      .hamburger  { display: flex; }
+
+      /* ドロワーメニューを表示可能に */
+      .mobile-menu { display: flex; }
+
+      /* HERO */
+      #hero { padding: 0 0 4rem; }
+      .hero-content { padding: 0 1.5rem; }
+      .hero-badge { font-size: 0.62rem; letter-spacing: 0.15em; }
+      .hero-sub   { font-size: 0.95rem; line-height: 1.7; }
+      .hero-scroll { display: none; }
+
+      /* SECTIONS */
+      section { padding: var(--gap) 1.4rem; }
+
+      /* INTRO */
+      #intro {
+        grid-template-columns: 1fr;
+        padding: var(--gap) 1.4rem;
+        gap: 2rem;
+      }
+      #intro .intro-img { order: -1; height: 240px; }
+      .intro-keywords { gap: 0.5rem; }
+      .intro-keywords span { font-size: 0.72rem; padding: 0.25rem 0.7rem; }
+
+      /* DAYS */
+      .day-block,
+      .day-block.reverse {
+        grid-template-columns: 1fr;
+        direction: ltr;
+        gap: 1.5rem;
+        margin-bottom: 3rem;
+      }
+      .day-block.reverse .day-img { order: -1; }
+      .day-img { height: 220px; }
+      .day-number { font-size: 3.5rem; }
+
+      /* MOMENTS */
+      .moments-grid { grid-template-columns: 1fr; gap: 1rem; }
+      .moment-card-img { height: 180px; }
+
+      /* FARMER */
+      #farmer {
+        grid-template-columns: 1fr;
+        padding: var(--gap) 1.4rem;
+        gap: 2rem;
+      }
+      .farmer-img { height: 260px; }
+      .farmer-quote p { font-size: 0.95rem; }
+
+      /* OVERVIEW */
+      .overview-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      #overview { padding: var(--gap) 1.4rem; }
+      .overview-img { height: 200px; }
+      .overview-table td { font-size: 0.85rem; }
+      .overview-table td:first-child { width: 80px; font-size: 0.68rem; }
+
+      /* SCHEDULE */
+      #schedule { padding: var(--gap) 1.4rem; }
+      .tab-btn { padding: 0.7rem 1rem; font-size: 0.76rem; }
+      .schedule-row {
+        grid-template-columns: 72px 1fr;
+        font-size: 0.8rem;
+        gap: 0.5rem;
+        padding: 0.6rem 0;
+      }
+      .schedule-note { display: none; }
+      .schedule-time { font-size: 0.68rem; }
+
+      /* CTA */
+      #cta { padding: 4rem 1.4rem; }
+      .cta-btn { padding: 0.9rem 2rem; font-size: 0.82rem; }
+
+      /* FOOTER */
+      footer {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem 1.4rem;
+        gap: 0.6rem;
+      }
+
+    }
+
+    /* ===== RESPONSIVE — SMALL MOBILE (〜374px) ===== */
+    @media (max-width: 374px) {
+      :root { --fs-hero: clamp(2.2rem, 13vw, 3rem); }
+      .hero-badge { display: none; }
+      .overview-table td:first-child { width: 68px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- MOBILE DRAWER -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="drawcal_about.html" onclick="closeMobileMenu()">DRAWCALとは</a>
+    <a href="#cta" class="mobile-cta" onclick="closeMobileMenu()">ウェイティングリスト登録</a>
+  </div>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="#" class="nav-logo">DRAWCAL</a>
+    <div class="nav-links">
+      <a href="drawcal_about.html" class="nav-about">DRAWCALとは</a>
+      <a href="#cta" class="nav-cta">ウェイティングリスト登録</a>
+    </div>
+    <!-- ハンバーガー（スマホのみ表示） -->
+    <button class="hamburger" id="hamburger" aria-label="メニュー" onclick="toggleMobileMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg">
+      <!-- 現地写真：orchard_hero.jpg を同フォルダに置くと表示されます -->
+      <img src="orchard_hero.JPG" alt="岩木山を望むりんご農園" style="width:100%;height:100%;object-fit:cover;"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+      <div class="img-placeholder" style="width:100%;height:100%;display:none;">
+        <span class="label">画像① ヒーロー（orchard_hero.jpg を同フォルダに配置）</span>
+        <span class="desc">岩木山を背景にしたりんご農園の絶景</span>
+      </div>
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <span class="hero-badge">MONITOR TOUR 2026 · KUROISHI, AOMORI</span>
+      <h1 class="hero-title">ドローカル、<br>津軽。</h1>
+      <p class="hero-sub">りんご農家と飲んで、作業して、温泉に入る。<br>青森・黒石で過ごす濃くて短い2泊3日。</p>
+    </div>
+    <div class="hero-scroll">SCROLL</div>
+  </section>
+
+  <!-- INTRO -->
+  <section id="intro">
+    <div>
+      <span class="section-label">What is this?</span>
+      <h2 class="section-title">「観光客」じゃなく、<br>農家の仲間として<br>この土地に入る。</h2>
+      <p class="section-body">
+        パッケージ旅行でも、農業体験でもない。
+        農家と居酒屋で乾杯して、草むらに寝転んで、
+        温泉で肩を並べる。そういう3日間です。<br><br>
+        参加できるのは、紹介された人だけ。
+        だから、農家も本音で話してくれます。
+      </p>
+      <div class="intro-keywords">
+        <span>摘果・農作業</span>
+        <span>農家との食事</span>
+        <span>温泉</span>
+        <span>蔵泊（1棟貸切）</span>
+        <span>焚き火</span>
+        <span>黒石こみせ</span>
+        <span>紹介制</span>
+      </div>
+    </div>
+    <div class="intro-img">
+      <img src="TEKIKA.png" alt="摘果作業の様子" style="width:100%;height:100%;object-fit:cover;"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+      <div class="img-placeholder" style="width:100%;height:100%;display:none;">
+        <span class="label">画像② 摘果（TEKIKA.jpg）</span>
+        <span class="desc">摘果作業の様子</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- DAYS -->
+  <section id="days">
+    <div class="days-header fade-up">
+      <span class="section-label">3 Days Story</span>
+      <h2 class="section-title">3日間に、<br>ちゃんと山場があります。</h2>
+    </div>
+
+    <!-- DAY 1 -->
+    <div class="day-block fade-up">
+      <div class="day-text">
+        <div class="day-number">01</div>
+        <span class="day-label">DAY 1 · 津軽に入る日</span>
+        <h3 class="day-title">農家のいきつけで、<br>乾杯する夜。</h3>
+        <p class="day-body">
+          青森駅集合、市内観光の後でレンタカーで黒石へ。
+          1915年築の蔵泊に荷物を置いたら、
+          農家がいつも行く焼き鳥屋へ。
+          ここで初めて顔を合わせます。<br><br>
+          気づけばスナック街へ2軒目。都会では使ったことのない「代行」で宿へ。
+          翌日のオリエンテーションは、少しだけ。
+        </p>
+      </div>
+      <div class="day-img">
+        <img src="KANPAI.png" alt="農家と乾杯する夜" style="width:100%;height:100%;object-fit:cover;"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <div class="img-placeholder" style="width:100%;height:100%;display:none;">
+          <span class="label">画像③ DAY1夜（KANPAI.png）</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 2 — 縦並びレイアウト：テキスト→画像④ -->
+    <div class="day-block-v fade-up">
+      <!-- 中：テキスト -->
+      <div class="day-text-center">
+        <div class="day-number">02</div>
+        <span class="day-label">DAY 2 · 農園に入る日</span>
+        <h3 class="day-title">草むらに寝転んで、<br>コーヒーを飲む午前。</h3>
+        <p class="day-body">
+          起きたら温泉に行ってもいいし、近くの小川をランニングしてもいい。
+          静かな朝の空気を吸ってから、農園に入ります。
+          摘果作業はりんごのオーディション。審査員はあなたです。<br><br>
+          作業に疲れたら、農家の休憩タイムに参加します。
+          草むらに寝転んで、空を見る。
+          特に何も言わなくていい時間。
+          これが、この旅の感情的なピークです。
+        </p>
+      </div>
+      <!-- 下：画像④ KYUKEI -->
+      <div class="day-img-feat">
+        <img src="KYUKEI.png" alt="農園での休憩" style="width:100%;height:100%;object-fit:cover;"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <div class="img-placeholder" style="width:100%;height:100%;display:none;">
+          <span class="label">画像④ 休憩（KYUKEI.jpg）</span>
+          <span class="desc">農園の草むらで寝転ぶ。農家と休憩。</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 3 -->
+    <div class="day-block fade-up">
+      <div class="day-text">
+        <div class="day-number">03</div>
+        <span class="day-label">DAY 3 · 関わりを持ち帰る日</span>
+        <h3 class="day-title">小さな瓶の中に、<br>来年が入っている。</h3>
+        <p class="day-body">
+          最終日は弘前や黒石の歴史を感じるツアーに。
+          最後に農園に寄ると、農家から小さな標本瓶を手渡されます。
+          中にあるのは、あなたが摘んだりんご。<br><br>
+          「この小さなりんごのおかげで、真っ赤で大きなりんごが育つ。収穫の秋にまたおいで」<br>
+          この旅との関わりは、ここで終わらない。
+        </p>
+      </div>
+      <div class="day-img">
+        <!-- 画像⑤：まだ写真なし → 撮影後に差し替え -->
+        <div class="img-placeholder" style="width:100%;height:100%;">
+          <span class="label">画像⑤ 標本瓶（準備中）</span>
+          <span class="desc">農家の手から標本瓶が手渡される瞬間</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MOMENTS -->
+  <section id="moments" class="fade-up">
+    <span class="section-label">Only Here</span>
+    <h2 class="section-title">この旅にしかない、<br>４つのドローカル。</h2>
+    <div class="moments-grid">
+
+      <!-- カード①：ドローカルな温泉 → SPA.jpg -->
+      <div class="moment-card">
+        <div class="moment-card-img">
+          <img src="SPA.png" alt="ドローカルな温泉" style="width:100%;height:100%;object-fit:cover;"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="img-placeholder" style="width:100%;height:100%;display:none;">
+            <span class="label">画像⑦ 温泉（SPA.jpg）</span>
+          </div>
+        </div>
+        <div class="moment-card-body">
+          <h4 class="moment-card-title">ドローカルな温泉</h4>
+          <p class="moment-card-desc">青森県は人口当たりの温泉の数日本一。ここ黒石にも多くの「地元民しか知らない」温泉があります。</p>
+        </div>
+      </div>
+
+      <!-- カード②：ドローカルなスナック街 → SNAK.png -->
+      <div class="moment-card">
+        <div class="moment-card-img">
+          <img src="SNAK.png" alt="黒石スナック街" style="width:100%;height:100%;object-fit:cover;"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="img-placeholder" style="width:100%;height:100%;display:none;">
+            <span class="label">画像 スナック街（SNAK.png）</span>
+          </div>
+        </div>
+        <div class="moment-card-body">
+          <h4 class="moment-card-title">ドローカルなスナック街</h4>
+          <p class="moment-card-desc">農家いきつけのスナックを紹介。普通の観光では開けられない扉を、農家が開けてくれる。</p>
+        </div>
+      </div>
+
+      <!-- カード③：ドローカルな食材・BBQ → KAIMONO.jpg -->
+      <div class="moment-card">
+        <div class="moment-card-img">
+          <img src="KAIMONO.png" alt="地元食材の買い出し" style="width:100%;height:100%;object-fit:cover;"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="img-placeholder" style="width:100%;height:100%;display:none;">
+            <span class="label">画像⑧ 買い物（KAIMONO.jpg）</span>
+          </div>
+        </div>
+        <div class="moment-card-body">
+          <h4 class="moment-card-title">ドローカルな食材を、自分たちで調達</h4>
+          <p class="moment-card-desc">黒石の直売所へ担当食材を手分けして買い出し。店主との会話が、観光ガイドより面白い。地元食材を使ったBBQ。焚き火を囲む夜。</p>
+        </div>
+      </div>
+
+      <!-- カード④：ドローカルな蔵 → BBQ.jpg -->
+      <div class="moment-card">
+        <div class="moment-card-img">
+          <img src="BBQ.png" alt="蔵泊でのBBQ・焚き火" style="width:100%;height:100%;object-fit:cover;"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="img-placeholder" style="width:100%;height:100%;display:none;">
+            <span class="label">画像⑥ BBQ（BBQ.jpg）</span>
+          </div>
+        </div>
+        <div class="moment-card-body">
+          <h4 class="moment-card-title">ドローカルな、1棟貸しの「蔵」</h4>
+          <p class="moment-card-desc">黒石こみせエリアにある「蔵泊」。1棟貸切なので、仲間と自由に使える。古い蔵の空気が、滞在を豊かにする。</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FARMER -->
+  <section id="farmer">
+    <div class="farmer-img">
+      <!-- 画像⑫：藤田さんのポートレート（農園にて） に差し替え -->
+      <div class="img-placeholder" style="width:100%;height:100%;">
+        <span class="label">画像⑫ 農家ポートレート</span>
+        <span class="desc">藤田さんの農園でのポートレート。30代のUターン農家。自然光。</span>
+      </div>
+    </div>
+    <div>
+      <span class="section-label">Your Host Farmer</span>
+      <h2 class="section-title">一緒に過ごす<br>農家のこと。</h2>
+      <p class="farmer-profile">
+        青森県黒石市、りんご農家。地元出身のUターン青年農家。
+        弘前・黒石エリアに農園を持ち、りんごを中心に栽培している。<br><br>
+        都市から来る人との交流が好きで、
+        自分の農家としての課題も率直に話してくれる。
+      </p>
+      <div class="farmer-quote">
+        <p>「友人を呼んで農園で過ごすと、自分の仕事が豊かに見える気がする。来てくれる人には、ただ楽しんでほしいし、また来てほしい。」</p>
+        <cite>— 農家本人より（ニュアンスを再構成しています）<br>※本人の実際のことばは取得後に差し替えます</cite>
+      </div>
+    </div>
+  </section>
+
+  <!-- OVERVIEW -->
+  <section id="overview">
+    <div>
+      <span class="section-label">Tour Overview</span>
+      <h2 class="section-title">開催概要</h2>
+    </div>
+    <div class="overview-grid fade-up">
+      <table class="overview-table">
+        <tr>
+          <td>第1回</td>
+          <td>2025年6月5日（木）〜7日（土）<br><small style="color:var(--sage);">単身・夫婦・友人同士</small></td>
+        </tr>
+        <tr>
+          <td>第2回</td>
+          <td>2025年6月末〜7月上旬（調整中）<br><small style="color:var(--sage);">子連れファミリー向け</small></td>
+        </tr>
+        <tr>
+          <td>定員</td>
+          <td>各回6名</td>
+        </tr>
+        <tr>
+          <td>参加費</td>
+          <td>モニター価格（確定次第ご案内）<br><small style="color:var(--sage);">フィードバック・アンケート協力込み</small></td>
+        </tr>
+        <tr>
+          <td>集合</td>
+          <td>青森駅 11:30</td>
+        </tr>
+        <tr>
+          <td>宿泊</td>
+          <td>蔵泊（1棟貸切）<br><small style="color:var(--sage);">1915年築・黒石こみせエリア</small></td>
+        </tr>
+        <tr>
+          <td>移動</td>
+          <td>レンタカー（大型1台）青森駅でピックアップ・返却</td>
+        </tr>
+        <tr>
+          <td>集客</td>
+          <td>紹介制<br><small style="color:var(--sage);">ご登録の際に紹介者のお名前をご記載ください</small></td>
+        </tr>
+      </table>
+      <div class="overview-img">
+        <img src="ORCHARD.JPG" alt="りんご農園の風景" style="width:100%;height:100%;object-fit:cover;"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <div class="img-placeholder" style="width:100%;height:100%;display:none;">
+          <span class="label">画像⑬ 農園（ORCHARD.JPG）</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCHEDULE -->
+  <section id="schedule" class="fade-up">
+    <span class="section-label">Schedule</span>
+    <h2 class="section-title">3日間の詳しい流れ</h2>
+    <div class="schedule-tabs">
+      <button class="tab-btn active" onclick="switchTab('day1', this)">DAY 1</button>
+      <button class="tab-btn" onclick="switchTab('day2', this)">DAY 2</button>
+      <button class="tab-btn" onclick="switchTab('day3', this)">DAY 3</button>
+    </div>
+
+    <div id="tab-day1" class="tab-content active">
+      <div class="schedule-day">
+        <div class="schedule-day-title">DAY 1 ｜ 津軽に入る日</div>
+        <div class="schedule-row"><span class="schedule-time">11:30</span><span class="schedule-item">青森駅集合・レンタカーピックアップ</span><span class="schedule-note"></span></div>
+        <div class="schedule-row"><span class="schedule-time">12:00〜16:30</span><span class="schedule-item">青森市内観光（三内丸山遺跡 or ワ・ラッセ、A-factory等）</span><span class="schedule-note"></span></div>
+        <div class="schedule-row"><span class="schedule-time">16:30</span><span class="schedule-item">黒石へ出発（約1時間）</span><span class="schedule-note"></span></div>
+        <div class="schedule-row"><span class="schedule-time">17:45</span><span class="schedule-item">蔵泊チェックイン・荷物置き</span><span class="schedule-note"></span></div>
+        <div class="schedule-row"><span class="schedule-time">19:00</span><span class="schedule-item">農家いきつけの焼き鳥屋 ← 農家と乾杯</span><span class="schedule-note"></span></div>
+        <div class="schedule-row"><span class="schedule-time">21:30頃</span><span class="schedule-item">黒石スナック街へ徒歩で2軒目（任意）</span><span class="schedule-note"></span></div>
+        <div class="schedule-row"><span class="schedule-time">23:00頃</span><span class="schedule-item">代行で蔵泊に帰還・翌日オリエンテーション</span><span class="schedule-note"></span></div>
+      </div>
+    </div>
+
+    <div id="tab-day2" class="tab-content">
+      <div class="schedule-day">
+        <div class="schedule-day-title">DAY 2 ｜ 農園に入る日</div>
+        <div class="schedule-row"><span class="schedule-time">06:00〜08:00</span><span class="schedule-item">【任意】朝風呂、ランニング等</span><span class="schedule-note"></span></div>
+        <div class="schedule-row"><span class="schedule-time">08:00</span><span class="schedule-item">蔵泊キッチンで朝食</span><span class="schedule-note"></span></div>
+        <div class="schedule-row"><span class="schedule-time">09:00</span><span class="schedule-item">農園へ出発</span><span class="schedule-note"></span></div>
+        <div class="schedule-row"><span class="schedule-time">09:15〜11:30</span><span class="schedule-item">摘果作業（農家の目利き・判断の解説つき）</span><span class="schedule-note"></span></div>
+        <div class="schedule-row"><span class="schedule-time">11:30〜12:30</span><span class="schedule-item">農家の休憩体験（農園でコーヒー・草むらに寝転ぶ）</span><span class="schedule-note"></span></div>
+        <div class="schedule-row"><span class="schedule-time">12:30〜13:30</span><span class="schedule-item">農家と昼食・経営の本音トーク</span><span class="schedule-note"></span></div>
+        <div class="schedule-row"><span class="schedule-time">14:00〜15:30</span><span class="schedule-item">午後の軽作業</span><span class="schedule-note"></span></div>
+        <div class="schedule-row"><span class="schedule-time">15:30〜16:30</span><span class="schedule-item">お買い物クエスト（黒石直売所・BBQ食材調達）</span><span class="schedule-note"></span></div>
+        <div class="schedule-row"><span class="schedule-time">16:45〜18:00</span><span class="schedule-item">近隣温泉</span><span class="schedule-note"></span></div>
+        <div class="schedule-row"><span class="schedule-time">18:30〜20:30</span><span class="schedule-item">蔵泊BBQ</span><span class="schedule-note"></span></div>
+        <div class="schedule-row"><span class="schedule-time">21:00〜</span><span class="schedule-item">焚き火を囲みながら振り返り</span><span class="schedule-note"></span></div>
+      </div>
+    </div>
+
+    <div id="tab-day3" class="tab-content">
+      <div class="schedule-day">
+        <div class="schedule-day-title">DAY 3 ｜ 関わりを持ち帰る日</div>
+        <div class="schedule-row"><span class="schedule-time">08:00</span><span class="schedule-item">朝食・チェックアウト準備</span><span class="schedule-note"></span></div>
+        <div class="schedule-row"><span class="schedule-time">09:00</span><span class="schedule-item">農園へ（軽作業30分）</span><span class="schedule-note"></span></div>
+        <div class="schedule-row"><span class="schedule-time">09:30</span><span class="schedule-item">標本瓶の贈呈＋農家のナレーション</span><span class="schedule-note"></span></div>
+        <div class="schedule-row"><span class="schedule-time">10:00</span><span class="schedule-item">クロージング「またどう関わりたいか？」</span><span class="schedule-note"></span></div>
+        <div class="schedule-row"><span class="schedule-time">10:30</span><span class="schedule-item">チェックアウト・荷物を車へ</span><span class="schedule-note"></span></div>
+        <div class="schedule-row"><span class="schedule-time">11:00〜13:30</span><span class="schedule-item">弘前・黒石周辺観光（天候で分岐）<br><small style="color:var(--sage);">☀ 大川原棚田 → 弘前城公園　🌧 こみせ通り → 津軽藩ねぷた村</small></span><span class="schedule-note"></span></div>
+        <div class="schedule-row"><span class="schedule-time">13:30</span><span class="schedule-item">青森駅へ出発（約1時間）</span><span class="schedule-note"></span></div>
+        <div class="schedule-row"><span class="schedule-time">14:45</span><span class="schedule-item">青森駅着・レンタカー返却・解散</span><span class="schedule-note"></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="cta">
+    <div class="cta-bg">
+      <div class="img-placeholder" style="width:100%;height:100%;opacity:0.3;">
+        <span class="label" style="color:rgba(255,255,255,0.3);">画像⑭ CTA背景</span>
+      </div>
+    </div>
+    <div class="cta-inner fade-up">
+      <span class="cta-label">Waiting List</span>
+      <h2 class="cta-title">この旅に、<br>参加してみませんか。</h2>
+      <p class="cta-body">
+        参加は紹介制です。ウェイティングリストにご登録いただいた方へ、
+        日程・参加費の確定後に個別にご案内します。
+        登録の際に、紹介者のお名前をご記載ください。
+      </p>
+      <a href="#" class="cta-btn">ウェイティングリストに登録する</a>
+      <p class="cta-note">※ 登録後、主催者より個別にご連絡します</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">DRAWCAL</div>
+    <div class="footer-copy">© 2026 DRAWCAL — Connecting Orchards with Referral Energy</div>
+  </footer>
+
+  <script>
+    // ===== bfcache対策（戻るボタンで旧バージョンが表示されるのを防ぐ）=====
+    window.addEventListener('pageshow', function(event) {
+      if (event.persisted) {
+        window.location.reload();
+      }
+    });
+
+    // ===== タブ切替 =====
+    function switchTab(dayId, btn) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+      document.getElementById('tab-' + dayId).classList.add('active');
+      btn.classList.add('active');
+    }
+
+    // ===== スクロールでナビ変化 =====
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // ===== ハンバーガーメニュー =====
+    const hamburger   = document.getElementById('hamburger');
+    const mobileMenu  = document.getElementById('mobileMenu');
+    let menuOpen = false;
+
+    function toggleMobileMenu() {
+      menuOpen = !menuOpen;
+      hamburger.classList.toggle('open', menuOpen);
+      mobileMenu.classList.toggle('open', menuOpen);
+      document.body.style.overflow = menuOpen ? 'hidden' : '';
+    }
+    function closeMobileMenu() {
+      menuOpen = false;
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    // ESCキーで閉じる
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && menuOpen) closeMobileMenu();
+    });
+
+    // ===== フェードアップアニメーション =====
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.10 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

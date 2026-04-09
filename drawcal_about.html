@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DRAWCALとは｜DRAWCAL</title>
+  <meta name="description" content="DRAW＋LOCAL＝DRAWCAL。都市と地方が本当の意味でつながる未来を描く。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;700&family=Noto+Sans+JP:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --cream: #F5F0E8;
+      --earth: #2C2416;
+      --brown: #6B4C2A;
+      --green: #3A5A3A;
+      --sage:  #7A8C6E;
+      --warm:  #C8A96E;
+      --white: #FDFCF8;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background: var(--cream);
+      color: var(--earth);
+      line-height: 1.8;
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.2rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(245,240,232,0.96);
+      box-shadow: 0 1px 12px rgba(0,0,0,0.07);
+      backdrop-filter: blur(8px);
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      letter-spacing: 0.1em;
+      color: var(--earth);
+      text-decoration: none;
+    }
+    .nav-links { display: flex; align-items: center; gap: 0.8rem; }
+    .nav-back {
+      color: var(--earth);
+      text-decoration: none;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      padding: 0.5rem 1.2rem;
+      border: 1px solid rgba(44,36,22,0.3);
+      border-radius: 2px;
+      transition: background 0.2s;
+    }
+    .nav-back:hover { background: rgba(44,36,22,0.06); }
+    .nav-cta {
+      background: var(--green);
+      color: var(--white);
+      text-decoration: none;
+      padding: 0.5rem 1.4rem;
+      border-radius: 2px;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--brown); }
+
+    /* HERO */
+    .about-hero {
+      padding: clamp(8rem, 16vw, 13rem) clamp(1.5rem, 8vw, 8rem) clamp(5rem, 10vw, 9rem);
+      background: var(--earth);
+      position: relative;
+      overflow: hidden;
+    }
+    .about-hero::before {
+      content: 'DRAWCAL';
+      position: absolute;
+      right: -0.05em;
+      bottom: -0.2em;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(8rem, 20vw, 18rem);
+      font-weight: 300;
+      color: rgba(255,255,255,0.04);
+      line-height: 1;
+      pointer-events: none;
+      letter-spacing: -0.02em;
+    }
+    .about-hero-label {
+      display: block;
+      font-size: 0.68rem;
+      letter-spacing: 0.3em;
+      color: var(--warm);
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+    }
+    .about-hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.5rem, 12vw, 9rem);
+      font-weight: 300;
+      color: var(--cream);
+      line-height: 1;
+      letter-spacing: 0.05em;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+    .about-hero-sub {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(1rem, 2.5vw, 1.5rem);
+      font-weight: 300;
+      color: rgba(245,240,232,0.7);
+      letter-spacing: 0.05em;
+      line-height: 1.7;
+      position: relative;
+    }
+
+    /* CONTENT */
+    .about-content {
+      padding: clamp(5rem, 10vw, 9rem) clamp(1.5rem, 8vw, 8rem);
+      max-width: 860px;
+    }
+
+    /* ETYMOLOGY */
+    .etymology {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1.5rem 2.5rem;
+      align-items: start;
+      margin-bottom: clamp(4rem, 8vw, 7rem);
+      padding-bottom: clamp(4rem, 8vw, 7rem);
+      border-bottom: 1px solid rgba(44,36,22,0.1);
+    }
+    .etym-word {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.5rem, 7vw, 5rem);
+      font-weight: 300;
+      color: var(--warm);
+      line-height: 1;
+      letter-spacing: 0.05em;
+      writing-mode: horizontal-tb;
+    }
+    .etym-text h3 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(1rem, 2vw, 1.3rem);
+      font-weight: 400;
+      margin-bottom: 0.6rem;
+      color: var(--earth);
+      line-height: 1.4;
+    }
+    .etym-text p {
+      font-size: clamp(0.9rem, 1.5vw, 1rem);
+      color: #4a3f30;
+      line-height: 1.9;
+    }
+
+    /* MEANINGS */
+    .meanings {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(3rem, 6vw, 5rem);
+    }
+    .meaning-block {
+      display: grid;
+      grid-template-columns: 60px 1fr;
+      gap: 0 2rem;
+      align-items: start;
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .meaning-block.visible { opacity: 1; transform: none; }
+    .meaning-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.5rem;
+      font-weight: 300;
+      color: var(--warm);
+      line-height: 1;
+      opacity: 0.5;
+      padding-top: 0.1rem;
+    }
+    .meaning-body h3 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+      font-weight: 400;
+      margin-bottom: 1rem;
+      line-height: 1.35;
+      color: var(--earth);
+    }
+    .meaning-body p {
+      font-size: clamp(0.9rem, 1.5vw, 1.05rem);
+      color: #4a3f30;
+      line-height: 1.9;
+    }
+    .meaning-body .accent {
+      color: var(--green);
+      font-weight: 400;
+    }
+
+    /* CLOSING */
+    .about-closing {
+      margin-top: clamp(5rem, 10vw, 9rem);
+      padding: clamp(3rem, 6vw, 5rem) clamp(2rem, 5vw, 4rem);
+      background: var(--earth);
+      border-radius: 2px;
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .about-closing.visible { opacity: 1; transform: none; }
+    .about-closing p {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      font-weight: 300;
+      color: rgba(245,240,232,0.88);
+      line-height: 1.9;
+      margin-bottom: 1.5rem;
+    }
+    .about-closing p:last-child { margin-bottom: 0; }
+    .about-closing .sig {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      color: var(--warm);
+      letter-spacing: 0.15em;
+      display: block;
+      margin-top: 2rem;
+    }
+
+    /* CTA */
+    .about-cta {
+      margin-top: clamp(4rem, 8vw, 7rem);
+      text-align: center;
+      padding: clamp(3rem, 6vw, 5rem) 2rem;
+    }
+    .about-cta-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(1.2rem, 3vw, 1.8rem);
+      font-weight: 400;
+      margin-bottom: 2rem;
+      color: var(--earth);
+      line-height: 1.5;
+    }
+    .about-cta-btn {
+      display: inline-block;
+      background: var(--green);
+      color: var(--white);
+      text-decoration: none;
+      padding: 1rem 3rem;
+      font-size: 0.88rem;
+      letter-spacing: 0.12em;
+      font-weight: 400;
+      border-radius: 2px;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .about-cta-btn:hover {
+      background: var(--brown);
+      transform: translateY(-2px);
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--earth);
+      padding: 2.5rem clamp(1.5rem, 8vw, 8rem);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      letter-spacing: 0.1em;
+      color: rgba(245,240,232,0.6);
+    }
+    .footer-copy {
+      font-size: 0.68rem;
+      color: rgba(245,240,232,0.3);
+      letter-spacing: 0.08em;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 640px) {
+      .etymology { grid-template-columns: 1fr; gap: 0.8rem; }
+      .etym-word { font-size: 3rem; }
+      .meaning-block { grid-template-columns: 40px 1fr; gap: 0 1.2rem; }
+      footer { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="agri_lp.html" class="nav-logo">DRAWCAL</a>
+    <div class="nav-links">
+      <a href="agri_lp.html" class="nav-back">← ツアーページへ</a>
+      <a href="agri_lp.html#cta" class="nav-cta">ウェイティングリスト登録</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="about-hero">
+    <span class="about-hero-label">About DRAWCAL</span>
+    <h1 class="about-hero-title">DRAWCAL</h1>
+    <p class="about-hero-sub">ドローカル — この名前に込めたこと。</p>
+  </section>
+
+  <!-- CONTENT -->
+  <div class="about-content">
+
+    <!-- 語源 -->
+    <div class="etymology">
+      <div class="etym-word">DRAW<br>＋<br>LOCAL</div>
+      <div class="etym-text">
+        <h3>DRAW ＋ LOCAL ＝ DRAWCAL</h3>
+        <p>DRAWCALという名前には３つの意味を込めています。</p>
+      </div>
+    </div>
+
+    <!-- 3つの意味 -->
+    <div class="meanings">
+
+      <div class="meaning-block">
+        <div class="meaning-num">01</div>
+        <div class="meaning-body">
+          <h3>描くこと。</h3>
+          <p>
+            都市と地方が本当の意味でつながる未来を、
+            まだ誰も見たことのない形で<span class="accent">描きたい</span>。
+            そういう事業をしたい、という宣言です。
+          </p>
+        </div>
+      </div>
+
+      <div class="meaning-block">
+        <div class="meaning-num">02</div>
+        <div class="meaning-body">
+          <h3>引っ張ること。</h3>
+          <p>
+            農家のリアルな暮らし、土のにおい、方言の響き。
+            そういうものが持つ<span class="accent">引力</span>で、
+            都市に生きる人をローカルへと引き寄せる。
+            DRAWCALはその回路を作る仕事をしています。
+          </p>
+        </div>
+      </div>
+
+      <div class="meaning-block">
+        <div class="meaning-num">03</div>
+        <div class="meaning-body">
+          <h3>めちゃくちゃローカルであること。</h3>
+          <p>
+            "ド"がつくほど<span class="accent">ローカルに</span>。
+            深く深く、その土地に根を張る。
+            それが、DRAWCALのこだわりです。
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- クロージング -->
+    <div class="about-closing">
+      <p>一度きりの体験では、終わらせない。</p>
+      <p>関わるたびに、少しずつ役割が生まれていく。</p>
+      <p>そういう関係を、ひとつひとつ設計しています。</p>
+      <span class="sig">DRAWCAL</span>
+    </div>
+
+    <!-- CTA -->
+    <div class="about-cta">
+      <p class="about-cta-title">まずは、モニターツアーから。</p>
+      <a href="agri_lp.html#cta" class="about-cta-btn">ウェイティングリストに登録する</a>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">DRAWCAL</div>
+    <div class="footer-copy">© 2026 DRAWCAL — Connecting Orchards with Referral Energy</div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.meaning-block, .about-closing').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
