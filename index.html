@@ -141,7 +141,6 @@
       position: absolute;
       inset: 0;
     }
-    /* 画像が入るまでのプレースホルダー */
     .hero-bg .img-placeholder {
       font-size: 0.8rem;
     }
@@ -223,7 +222,9 @@
       color: var(--sage);
       text-transform: uppercase;
       margin-bottom: 1rem;
-      display: block;
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
     }
     .section-title {
       font-family: 'Noto Serif JP', serif;
@@ -245,10 +246,14 @@
       background: var(--earth);
       color: var(--cream);
       padding: clamp(4rem, 8vw, 7rem) clamp(1.5rem, 8vw, 8rem);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
+      display: block;
+      position: relative;
+      overflow: hidden;
+    }
+    #intro .intro-text-wrap {
+      max-width: 720px;
+      position: relative;
+      z-index: 1;
     }
     #intro .section-title { color: var(--cream); }
     #intro .section-body  { color: rgba(245,240,232,0.8); max-width: 100%; }
@@ -265,6 +270,15 @@
       letter-spacing: 0.1em;
       border-radius: 1px;
       color: rgba(245,240,232,0.7);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35em;
+    }
+    .intro-keywords span svg {
+      width: 11px;
+      height: 13px;
+      opacity: 0.7;
+      flex-shrink: 0;
     }
     .intro-img {
       height: clamp(280px, 40vw, 520px);
@@ -505,6 +519,7 @@
       text-align: right;
       white-space: nowrap;
     }
+
     /* ===== CTA ===== */
     #cta {
       background: var(--earth);
@@ -525,7 +540,10 @@
       color: var(--warm);
       text-transform: uppercase;
       margin-bottom: 1.2rem;
-      display: block;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6em;
     }
     .cta-title {
       font-family: 'Noto Serif JP', serif;
@@ -684,31 +702,17 @@
     /* ===== RESPONSIVE — TABLET (〜1024px) ===== */
     @media (max-width: 1024px) {
       :root { --gap: clamp(3.5rem, 8vw, 6rem); }
-
-      /* NAV */
       .nav-about { padding: 0.45rem 1rem; font-size: 0.74rem; }
       .nav-cta   { padding: 0.45rem 1.1rem; font-size: 0.74rem; }
-
-      /* INTRO */
       #intro { gap: 2.5rem; }
       .intro-img { height: clamp(260px, 36vw, 400px); }
-
-      /* DAYS */
       .day-block { gap: 2.5rem; }
       .day-img   { height: clamp(240px, 32vw, 400px); }
-
-      /* MOMENTS */
       .moments-grid { grid-template-columns: repeat(2, 1fr); }
-
-      /* FARMER */
       #farmer { gap: 2.5rem; }
       .farmer-img { height: clamp(280px, 38vw, 460px); }
-
-      /* OVERVIEW */
       .overview-grid { gap: 2.5rem; }
       .overview-img { height: clamp(240px, 30vw, 360px); }
-
-      /* SCHEDULE */
       .schedule-row { font-size: 0.82rem; }
       .schedule-note { font-size: 0.65rem; }
     }
@@ -722,25 +726,15 @@
         --fs-h3:   clamp(1.1rem, 4.5vw, 1.4rem);
         --fs-body: 0.92rem;
       }
-
-      /* NAV — ハンバーガーに切り替え */
       .nav-links  { display: none; }
       .hamburger  { display: flex; }
-
-      /* ドロワーメニューを表示可能に */
       .mobile-menu { display: flex; }
-
-      /* HERO */
       #hero { padding: 0 0 4rem; }
       .hero-content { padding: 0 1.5rem; }
       .hero-badge { font-size: 0.62rem; letter-spacing: 0.15em; }
       .hero-sub   { font-size: 0.95rem; line-height: 1.7; }
       .hero-scroll { display: none; }
-
-      /* SECTIONS */
       section { padding: var(--gap) 1.4rem; }
-
-      /* INTRO */
       #intro {
         grid-template-columns: 1fr;
         padding: var(--gap) 1.4rem;
@@ -749,8 +743,6 @@
       #intro .intro-img { order: -1; height: 240px; }
       .intro-keywords { gap: 0.5rem; }
       .intro-keywords span { font-size: 0.72rem; padding: 0.25rem 0.7rem; }
-
-      /* DAYS */
       .day-block,
       .day-block.reverse {
         grid-template-columns: 1fr;
@@ -761,12 +753,8 @@
       .day-block.reverse .day-img { order: -1; }
       .day-img { height: 220px; }
       .day-number { font-size: 3.5rem; }
-
-      /* MOMENTS */
       .moments-grid { grid-template-columns: 1fr; gap: 1rem; }
       .moment-card-img { height: 180px; }
-
-      /* FARMER */
       #farmer {
         grid-template-columns: 1fr;
         padding: var(--gap) 1.4rem;
@@ -774,8 +762,6 @@
       }
       .farmer-img { height: 260px; }
       .farmer-quote p { font-size: 0.95rem; }
-
-      /* OVERVIEW */
       .overview-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
@@ -784,8 +770,6 @@
       .overview-img { height: 200px; }
       .overview-table td { font-size: 0.85rem; }
       .overview-table td:first-child { width: 80px; font-size: 0.68rem; }
-
-      /* SCHEDULE */
       #schedule { padding: var(--gap) 1.4rem; }
       .tab-btn { padding: 0.7rem 1rem; font-size: 0.76rem; }
       .schedule-row {
@@ -796,19 +780,14 @@
       }
       .schedule-note { display: none; }
       .schedule-time { font-size: 0.68rem; }
-
-      /* CTA */
       #cta { padding: 4rem 1.4rem; }
       .cta-btn { padding: 0.9rem 2rem; font-size: 0.82rem; }
-
-      /* FOOTER */
       footer {
         flex-direction: column;
         text-align: center;
         padding: 2rem 1.4rem;
         gap: 0.6rem;
       }
-
     }
 
     /* ===== RESPONSIVE — SMALL MOBILE (〜374px) ===== */
@@ -816,6 +795,155 @@
       :root { --fs-hero: clamp(2.2rem, 13vw, 3rem); }
       .hero-badge { display: none; }
       .overview-table td:first-child { width: 68px; }
+    }
+
+    /* ========================================
+       ===== TSUGARU LOCAL DESIGN ELEMENTS =====
+       ======================================== */
+
+    /* ── こぎん刺し 透かしパターン（汎用） ── */
+    .kogin-watermark {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 1;
+    }
+    .kogin-watermark svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* ── ローカル区切り線（こけし＋りんご） ── */
+    .local-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.8rem;
+      padding: 2.8rem clamp(1.5rem, 8vw, 8rem);
+      background: var(--cream);
+    }
+    .local-divider::before,
+    .local-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(44,36,22,0.1);
+    }
+    .local-divider .divider-icons {
+      display: flex;
+      gap: 1.1rem;
+      align-items: center;
+      opacity: 0.25;
+      color: var(--earth);
+      transition: opacity 0.4s;
+    }
+    .local-divider:hover .divider-icons {
+      opacity: 0.5;
+    }
+
+    /* ── 津軽塗り風アクセントライン ── */
+    .tsugaru-lacquer-band {
+      height: 5px;
+      position: relative;
+      overflow: hidden;
+    }
+    .tsugaru-lacquer-band::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--earth);
+    }
+    .tsugaru-lacquer-band::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        90deg,
+        transparent        0px,  transparent        16px,
+        rgba(160,32,32,.75)  16px, rgba(160,32,32,.75)  26px,
+        transparent        26px, transparent        44px,
+        rgba(200,169,110,.7) 44px, rgba(200,169,110,.7) 51px,
+        transparent        51px, transparent        66px,
+        rgba(122,140,110,.65)66px, rgba(122,140,110,.65)73px,
+        transparent        73px, transparent        90px,
+        rgba(107,76,42,.6)   90px, rgba(107,76,42,.6)   98px,
+        transparent        98px, transparent       116px,
+        rgba(160,32,32,.55) 116px, rgba(160,32,32,.55) 124px,
+        transparent       124px, transparent       140px,
+        rgba(200,169,110,.5)140px, rgba(200,169,110,.5)146px,
+        transparent       146px, transparent       160px
+      );
+    }
+
+    /* ── りんご透かし（Introセクション） ── */
+    .apple-watermark-wrap {
+      position: absolute;
+      right: -1%;
+      bottom: -6%;
+      width: min(260px, 24vw);
+      pointer-events: none;
+      opacity: 0.04;
+      z-index: 0;
+      color: var(--cream);
+    }
+
+    /* ── 免責・注記セクション ── */
+    #legal-notes {
+      background: #1e1810;
+      padding: 2.8rem clamp(1.5rem, 8vw, 8rem);
+      border-top: 1px solid rgba(245,240,232,0.07);
+    }
+    .legal-notes-inner {
+      max-width: 820px;
+    }
+    .legal-notes-heading {
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      color: rgba(245,240,232,0.3);
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+      display: block;
+    }
+    .legal-notes-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+    .legal-notes-list li {
+      font-size: 0.68rem;
+      color: rgba(245,240,232,0.28);
+      line-height: 1.8;
+      letter-spacing: 0.03em;
+      padding-left: 1.1em;
+      position: relative;
+    }
+    .legal-notes-list li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: rgba(245,240,232,0.18);
+    }
+    @media (max-width: 767px) {
+      #legal-notes { padding: 2rem 1.4rem; }
+      .legal-notes-list li { font-size: 0.65rem; }
+    }
+
+    /* ── フッターこぎん装飾 ── */
+    .footer-kogin {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      opacity: 0.18;
+      color: var(--cream);
+    }
+
+    @media (max-width: 767px) {
+      .local-divider { padding: 2rem 1.4rem; gap: 1.2rem; }
+      .tsugaru-lacquer-band { height: 4px; }
+      .apple-watermark-wrap { width: 140px; }
+      .local-divider .divider-icons { opacity: 0.3; }
     }
   </style>
 </head>
@@ -832,9 +960,8 @@
     <a href="#" class="nav-logo">DRAWCAL</a>
     <div class="nav-links">
       <a href="drawcal_about.html" class="nav-about">DRAWCALとは</a>
-      <a href="#cta" class="nav-cta">ウェイティングリスト登録</a>
+      <a href="https://docs.google.com/forms/d/1g5HMvJfXkalPNt0c-9ngX8KOporp4T1xakz9p85mFnA/edit" target="_blank" rel="noopener noreferrer" class="nav-cta">ウェイティングリスト登録</a>
     </div>
-    <!-- ハンバーガー（スマホのみ表示） -->
     <button class="hamburger" id="hamburger" aria-label="メニュー" onclick="toggleMobileMenu()">
       <span></span><span></span><span></span>
     </button>
@@ -843,7 +970,6 @@
   <!-- HERO -->
   <section id="hero">
     <div class="hero-bg">
-      <!-- 現地写真：orchard_hero.jpg を同フォルダに置くと表示されます -->
       <img src="orchard_hero.JPG" alt="岩木山を望むりんご農園" style="width:100%;height:100%;object-fit:cover;"
            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
       <div class="img-placeholder" style="width:100%;height:100%;display:none;">
@@ -852,6 +978,7 @@
       </div>
     </div>
     <div class="hero-overlay"></div>
+
     <div class="hero-content">
       <span class="hero-badge">MONITOR TOUR 2026 · KUROISHI, AOMORI</span>
       <h1 class="hero-title">ドローカル、<br>津軽。</h1>
@@ -862,9 +989,17 @@
 
   <!-- INTRO -->
   <section id="intro">
-    <div>
-      <span class="section-label">What is this?</span>
-      <h2 class="section-title">「観光客」じゃなく、<br>農家の仲間として<br>この土地に入る。</h2>
+    <div class="intro-text-wrap">
+      <span class="section-label">
+        <!-- ② りんごアイコン（セクションラベル前） -->
+        <svg width="10" height="13" viewBox="0 0 16 20" fill="none" style="opacity:0.6;flex-shrink:0;" aria-hidden="true">
+          <path d="M8,4 C8,4 8,1.5 10.5,0.5 C13,-0.5 14,1 12.5,2.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+          <path d="M8,3 C10,1 13,2 12.5,4.5 C12,6 8,5 8,3 Z" fill="currentColor" opacity="0.8"/>
+          <path d="M8,5 C5,5 2,7 1.5,10.5 C1,14 2.5,18 5,19 C6.2,19.5 7,19 8,19 C9,19 9.8,19.5 11,19 C13.5,18 15,14 14.5,10.5 C14,7 11,5 8,5 Z" fill="currentColor"/>
+        </svg>
+        What is this?
+      </span>
+      <h2 class="section-title">「観光客」ではできない<br>体験を。</h2>
       <p class="section-body">
         パッケージ旅行でも、農業体験でもない。
         農家と居酒屋で乾杯して、草むらに寝転んで、
@@ -873,7 +1008,15 @@
         だから、農家も本音で話してくれます。
       </p>
       <div class="intro-keywords">
-        <span>摘果・農作業</span>
+        <!-- ③ りんごアイコン付きキーワードタグ -->
+        <span>
+          <svg viewBox="0 0 16 20" fill="none" aria-hidden="true">
+            <path d="M8,3.5 C8,3.5 8,1.5 10,0.8 C12,-0.2 13,0.8 12,2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" fill="none"/>
+            <path d="M8,2.5 C9.5,1 12,2 11.5,4 C11,5.5 8,4.5 8,2.5 Z" fill="currentColor" opacity="0.75"/>
+            <path d="M8,5 C5,5 2,7 1.5,10.5 C1,14 2.5,18 5,19 C6.2,19.5 7,19 8,19 C9,19 9.8,19.5 11,19 C13.5,18 15,14 14.5,10.5 C14,7 11,5 8,5 Z" fill="currentColor"/>
+          </svg>
+          摘果・農作業
+        </span>
         <span>農家との食事</span>
         <span>温泉</span>
         <span>蔵泊（1棟貸切）</span>
@@ -882,36 +1025,59 @@
         <span>紹介制</span>
       </div>
     </div>
-    <div class="intro-img">
-      <img src="TEKIKA.png" alt="摘果作業の様子" style="width:100%;height:100%;object-fit:cover;"
-           onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-      <div class="img-placeholder" style="width:100%;height:100%;display:none;">
-        <span class="label">画像② 摘果（TEKIKA.jpg）</span>
-        <span class="desc">摘果作業の様子</span>
-      </div>
+
+    <!-- ④ こぎん刺し透かし（introセクション左上コーナー） -->
+    <div class="kogin-watermark" style="opacity:0.06;" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <pattern id="koginIntro" x="0" y="0" width="36" height="36" patternUnits="userSpaceOnUse">
+            <polygon points="18,2 34,18 18,34 2,18"
+              fill="none" stroke="rgba(245,240,232,1)" stroke-width="0.6"/>
+            <polygon points="18,8 28,18 18,28 8,18"
+              fill="none" stroke="rgba(245,240,232,1)" stroke-width="0.45"/>
+            <circle cx="18" cy="18" r="1.1" fill="rgba(245,240,232,1)"/>
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#koginIntro)"/>
+      </svg>
     </div>
   </section>
+
+  <!-- ⑤ ローカル区切り（りんごのみ） -->
+  <div class="local-divider" aria-hidden="true">
+    <div class="divider-icons">
+      <!-- りんご -->
+      <svg width="18" height="22" viewBox="0 0 16 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8,3.5 C8,3.5 8,1.5 10,0.8 C12,-0.2 13,0.8 12,2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" fill="none"/>
+        <path d="M8,2.5 C9.5,1 12,2 11.5,4 C11,5.5 8,4.5 8,2.5 Z"/>
+        <path d="M8,5 C5,5 2,7 1.5,10.5 C1,14 2.5,18 5,19 C6.2,19.5 7,19 8,19 C9,19 9.8,19.5 11,19 C13.5,18 15,14 14.5,10.5 C14,7 11,5 8,5 Z"/>
+      </svg>
+    </div>
+  </div>
 
   <!-- DAYS -->
   <section id="days">
     <div class="days-header fade-up">
       <span class="section-label">3 Days Story</span>
-      <h2 class="section-title">3日間に、<br>ちゃんと山場があります。</h2>
+      <h2 class="section-title">3日間。その空白に、<br>何が流れ込むか。</h2>
+      <p class="section-body" style="margin-top:1.2rem;">
+        パッケージ旅行のような、分刻みの感動は用意していません。
+        しかし、農家の休憩時間にふと見上げる空の青さや、揺れる焚き火を囲んでこぼれる本音の会話の中に、都会では決して味わえない「感情のピーク」が隠れています。
+        その瞬間を見つけるのは、あなた自身です。
+      </p>
     </div>
 
-    <!-- DAY 1 -->
+    <!-- 01 | DAY 1 -->
     <div class="day-block fade-up">
       <div class="day-text">
         <div class="day-number">01</div>
-        <span class="day-label">DAY 1 · 津軽に入る日</span>
-        <h3 class="day-title">農家のいきつけで、<br>乾杯する夜。</h3>
+        <span class="day-label">Day 1 · 津軽に入る日</span>
+        <h3 class="day-title">アウェイがホームに変わる、<br>最初の乾杯。</h3>
         <p class="day-body">
-          青森駅集合、市内観光の後でレンタカーで黒石へ。
-          1915年築の蔵泊に荷物を置いたら、
-          農家がいつも行く焼き鳥屋へ。
-          ここで初めて顔を合わせます。<br><br>
-          気づけばスナック街へ2軒目。都会では使ったことのない「代行」で宿へ。
-          翌日のオリエンテーションは、少しだけ。
+          青森駅で落ち合い、簡単な市内観光の後、レンタカーを走らせて黒石へ。
+          農家行きつけの焼き鳥屋へ向かいます。<br><br>
+          「初めまして」のぎこちなさは、代行車で宿へ帰る頃には消えているはず。
+          地元のルールに身を委ねる、心地よい夜が始まります。
         </p>
       </div>
       <div class="day-img">
@@ -923,24 +1089,42 @@
       </div>
     </div>
 
-    <!-- DAY 2 — 縦並びレイアウト：テキスト→画像④ -->
-    <div class="day-block-v fade-up">
-      <!-- 中：テキスト -->
-      <div class="day-text-center">
+    <!-- 02 | DAY 2（1） -->
+    <div class="day-block reverse fade-up">
+      <div class="day-text">
         <div class="day-number">02</div>
-        <span class="day-label">DAY 2 · 農園に入る日</span>
-        <h3 class="day-title">草むらに寝転んで、<br>コーヒーを飲む午前。</h3>
+        <span class="day-label">Day 2 · 農園に入る日（1）</span>
+        <h3 class="day-title">一玉に、全神経を注ぐ<br>「選別」の儀式。</h3>
         <p class="day-body">
-          起きたら温泉に行ってもいいし、近くの小川をランニングしてもいい。
-          静かな朝の空気を吸ってから、農園に入ります。
-          摘果作業はりんごのオーディション。審査員はあなたです。<br><br>
-          作業に疲れたら、農家の休憩タイムに参加します。
-          草むらに寝転んで、空を見る。
-          特に何も言わなくていい時間。
-          これが、この旅の感情的なピークです。
+          津軽の静かな朝の空気を吸ってから、農園に入ります。
+          園地で行う「摘果（てきか）」は、一つの枝に実った5〜6つの実から、最も優れた一玉だけを残す命の選別。
+          残された一玉に栄養を集中させることで、秋、真っ赤な「りんご」が完成します。<br><br>
+          どの実を残し、どれを落とすか。農家の思考をトレースしながら、全神経を指先に集中させる。
+          それは、日常のノイズを削ぎ落とす、瞑想のような時間です。
         </p>
       </div>
-      <!-- 下：画像④ KYUKEI -->
+      <div class="day-img">
+        <img src="TEKIKA.png" alt="摘果作業" style="width:100%;height:100%;object-fit:cover;"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <div class="img-placeholder" style="width:100%;height:100%;display:none;">
+          <span class="label">画像 摘果作業（TEKIKA.png）</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 03 | DAY 2（2） -->
+    <div class="day-block-v fade-up">
+      <div class="day-text-center">
+        <div class="day-number">03</div>
+        <span class="day-label">Day 2 · 農園に入る日（2）</span>
+        <h3 class="day-title">静寂に身を委ねる。</h3>
+        <p class="day-body">
+          作業に疲れたら、草むらに寝転んで休憩タイム。
+          風の音や、土の匂い。五感が騒がしくなるほど、静かな時間。<br><br>
+          スマホは置いて、岩木山と津軽平野を眺めながらコーヒーを飲む。
+          これ以上の贅沢は、きっと他にありません。
+        </p>
+      </div>
       <div class="day-img-feat">
         <img src="KYUKEI.png" alt="農園での休憩" style="width:100%;height:100%;object-fit:cover;"
              onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
@@ -951,25 +1135,25 @@
       </div>
     </div>
 
-    <!-- DAY 3 -->
+    <!-- 04 | DAY 3 -->
     <div class="day-block fade-up">
       <div class="day-text">
-        <div class="day-number">03</div>
-        <span class="day-label">DAY 3 · 関わりを持ち帰る日</span>
-        <h3 class="day-title">小さな瓶の中に、<br>来年が入っている。</h3>
+        <div class="day-number">04</div>
+        <span class="day-label">Day 3 · 関わりを持ち帰る日</span>
+        <h3 class="day-title">150年の歴史を歩き、<br>再会を約束する。</h3>
         <p class="day-body">
-          最終日は弘前や黒石の歴史を感じるツアーに。
-          最後に農園に寄ると、農家から小さな標本瓶を手渡されます。
-          中にあるのは、あなたが摘んだりんご。<br><br>
-          「この小さなりんごのおかげで、真っ赤で大きなりんごが育つ。収穫の秋にまたおいで」<br>
-          この旅との関わりは、ここで終わらない。
+          最終日は、明治時代から続く青森りんごの長い歴史を辿る旅へ。
+          弘前・黒石の街並みに残る「りんごが育てた文化」に触れることで、昨日自分が手をかけた一玉が、途方もない時間の積み重ねの上にあることを知ります。<br><br>
+          「収穫の秋に、またおいで」<br>
+          農家と交わす言葉は、もう社交辞令ではありません。
+          この土地の歴史と、あなたの人生が交差する。新しい関わりが、ここから始まります。
         </p>
       </div>
       <div class="day-img">
-        <!-- 画像⑤：まだ写真なし → 撮影後に差し替え -->
-        <div class="img-placeholder" style="width:100%;height:100%;">
-          <span class="label">画像⑤ 標本瓶（準備中）</span>
-          <span class="desc">農家の手から標本瓶が手渡される瞬間</span>
+        <img src="HIROSAKI.png" alt="弘前・黒石の街並み" style="width:100%;height:100%;object-fit:cover;"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <div class="img-placeholder" style="width:100%;height:100%;display:none;">
+          <span class="label">画像⑤ 弘前（HIROSAKI.png）</span>
         </div>
       </div>
     </div>
@@ -981,7 +1165,6 @@
     <h2 class="section-title">この旅にしかない、<br>４つのドローカル。</h2>
     <div class="moments-grid">
 
-      <!-- カード①：ドローカルな温泉 → SPA.jpg -->
       <div class="moment-card">
         <div class="moment-card-img">
           <img src="SPA.png" alt="ドローカルな温泉" style="width:100%;height:100%;object-fit:cover;"
@@ -991,12 +1174,11 @@
           </div>
         </div>
         <div class="moment-card-body">
-          <h4 class="moment-card-title">ドローカルな温泉</h4>
-          <p class="moment-card-desc">青森県は人口当たりの温泉の数日本一。ここ黒石にも多くの「地元民しか知らない」温泉があります。</p>
+          <h4 class="moment-card-title">日常が溶け込む温泉</h4>
+          <p class="moment-card-desc">青森県は人口当たりの温泉の数日本一。ここ黒石にも多くの「普段使いの」温泉があります。飛び交う津軽弁を聞いて、会話の意味を想像してみて。</p>
         </div>
       </div>
 
-      <!-- カード②：ドローカルなスナック街 → SNAK.png -->
       <div class="moment-card">
         <div class="moment-card-img">
           <img src="SNAK.png" alt="黒石スナック街" style="width:100%;height:100%;object-fit:cover;"
@@ -1006,12 +1188,11 @@
           </div>
         </div>
         <div class="moment-card-body">
-          <h4 class="moment-card-title">ドローカルなスナック街</h4>
-          <p class="moment-card-desc">農家いきつけのスナックを紹介。普通の観光では開けられない扉を、農家が開けてくれる。</p>
+          <h4 class="moment-card-title">信頼で開く、スナックの扉</h4>
+          <p class="moment-card-desc">一見さんでは決して開けられない重い扉を、農家の「信頼」がこじ開けます。農家の仲間として迎えられる夜は、旅を一生の物語に変えてしまいます。</p>
         </div>
       </div>
 
-      <!-- カード③：ドローカルな食材・BBQ → KAIMONO.jpg -->
       <div class="moment-card">
         <div class="moment-card-img">
           <img src="KAIMONO.png" alt="地元食材の買い出し" style="width:100%;height:100%;object-fit:cover;"
@@ -1021,12 +1202,11 @@
           </div>
         </div>
         <div class="moment-card-body">
-          <h4 class="moment-card-title">ドローカルな食材を、自分たちで調達</h4>
-          <p class="moment-card-desc">黒石の直売所へ担当食材を手分けして買い出し。店主との会話が、観光ガイドより面白い。地元食材を使ったBBQ。焚き火を囲む夜。</p>
+          <h4 class="moment-card-title">旬を狩りにいく、買い出しクエスト</h4>
+          <p class="moment-card-desc">直売所へ、夜のBBQの食材を買い出しに。自分たちの手で「旬」を調達するプロセスが、夜の焚き火をより一層、豊かなものにします。</p>
         </div>
       </div>
 
-      <!-- カード④：ドローカルな蔵 → BBQ.jpg -->
       <div class="moment-card">
         <div class="moment-card-img">
           <img src="BBQ.png" alt="蔵泊でのBBQ・焚き火" style="width:100%;height:100%;object-fit:cover;"
@@ -1036,8 +1216,8 @@
           </div>
         </div>
         <div class="moment-card-body">
-          <h4 class="moment-card-title">ドローカルな、1棟貸しの「蔵」</h4>
-          <p class="moment-card-desc">黒石こみせエリアにある「蔵泊」。1棟貸切なので、仲間と自由に使える。古い蔵の空気が、滞在を豊かにする。</p>
+          <h4 class="moment-card-title">1棟貸しの「蔵」</h4>
+          <p class="moment-card-desc">黒石こみせエリアに佇む築100年超の「蔵泊」。太い梁と、ひんやりとした古い蔵の空気。歴史の厚みに包まれながら、仲間と語り明かす夜。この場所そのものが、津軽の記憶に触れる体験です。</p>
         </div>
       </div>
 
@@ -1047,25 +1227,16 @@
   <!-- FARMER -->
   <section id="farmer">
     <div class="farmer-img">
-      <!-- 画像⑫：藤田さんのポートレート（農園にて） に差し替え -->
       <div class="img-placeholder" style="width:100%;height:100%;">
-        <span class="label">画像⑫ 農家ポートレート</span>
-        <span class="desc">藤田さんの農園でのポートレート。30代のUターン農家。自然光。</span>
+        <span class="label">Coming Soon</span>
       </div>
     </div>
     <div>
       <span class="section-label">Your Host Farmer</span>
       <h2 class="section-title">一緒に過ごす<br>農家のこと。</h2>
-      <p class="farmer-profile">
-        青森県黒石市、りんご農家。地元出身のUターン青年農家。
-        弘前・黒石エリアに農園を持ち、りんごを中心に栽培している。<br><br>
-        都市から来る人との交流が好きで、
-        自分の農家としての課題も率直に話してくれる。
+      <p class="farmer-profile" style="opacity:0.5; font-style:italic;">
+        Coming Soon
       </p>
-      <div class="farmer-quote">
-        <p>「友人を呼んで農園で過ごすと、自分の仕事が豊かに見える気がする。来てくれる人には、ただ楽しんでほしいし、また来てほしい。」</p>
-        <cite>— 農家本人より（ニュアンスを再構成しています）<br>※本人の実際のことばは取得後に差し替えます</cite>
-      </div>
     </div>
   </section>
 
@@ -1079,11 +1250,11 @@
       <table class="overview-table">
         <tr>
           <td>第1回</td>
-          <td>2025年6月5日（木）〜7日（土）<br><small style="color:var(--sage);">単身・夫婦・友人同士</small></td>
+          <td>2026年6月5日（金）〜7日（日）<br><small style="color:var(--sage);">単身・夫婦・友人同士</small></td>
         </tr>
         <tr>
           <td>第2回</td>
-          <td>2025年6月末〜7月上旬（調整中）<br><small style="color:var(--sage);">子連れファミリー向け</small></td>
+          <td>2026年6月末〜7月上旬（調整中）<br><small style="color:var(--sage);">子連れファミリー向け</small></td>
         </tr>
         <tr>
           <td>定員</td>
@@ -1091,7 +1262,7 @@
         </tr>
         <tr>
           <td>参加費</td>
-          <td>モニター価格（確定次第ご案内）<br><small style="color:var(--sage);">フィードバック・アンケート協力込み</small></td>
+          <td>モニター価格（確定次第ご案内）<br><small style="color:var(--sage);">フィードバック・アンケート協力込み</small><br><small style="color:var(--sage);">※ 本プログラムは現地での体験コンテンツの提供です。集合場所（青森駅）までの往復交通費・宿泊費等は各自でのご手配・ご負担となります。</small></td>
         </tr>
         <tr>
           <td>集合</td>
@@ -1163,20 +1334,42 @@
     <div id="tab-day3" class="tab-content">
       <div class="schedule-day">
         <div class="schedule-day-title">DAY 3 ｜ 関わりを持ち帰る日</div>
-        <div class="schedule-row"><span class="schedule-time">08:00</span><span class="schedule-item">朝食・チェックアウト準備</span><span class="schedule-note"></span></div>
-        <div class="schedule-row"><span class="schedule-time">09:00</span><span class="schedule-item">農園へ（軽作業30分）</span><span class="schedule-note"></span></div>
-        <div class="schedule-row"><span class="schedule-time">09:30</span><span class="schedule-item">標本瓶の贈呈＋農家のナレーション</span><span class="schedule-note"></span></div>
-        <div class="schedule-row"><span class="schedule-time">10:00</span><span class="schedule-item">クロージング「またどう関わりたいか？」</span><span class="schedule-note"></span></div>
-        <div class="schedule-row"><span class="schedule-time">10:30</span><span class="schedule-item">チェックアウト・荷物を車へ</span><span class="schedule-note"></span></div>
-        <div class="schedule-row"><span class="schedule-time">11:00〜13:30</span><span class="schedule-item">弘前・黒石周辺観光（天候で分岐）<br><small style="color:var(--sage);">☀ 大川原棚田 → 弘前城公園　🌧 こみせ通り → 津軽藩ねぷた村</small></span><span class="schedule-note"></span></div>
+        <div class="schedule-row"><span class="schedule-time">08:00</span><span class="schedule-item">朝食・チェックアウト</span><span class="schedule-note"></span></div>
+        <div class="schedule-row"><span class="schedule-time">09:00〜13:00</span><span class="schedule-item">弘前・黒石周辺観光（天候で分岐）<br><small style="color:var(--sage);">☀ 大川原棚田 → 弘前城公園　🌧 こみせ通り → 津軽藩ねぷた村</small></span><span class="schedule-note"></span></div>
+        <div class="schedule-row"><span class="schedule-time">13:00〜13:30</span><span class="schedule-item">昼食・解散準備</span><span class="schedule-note"></span></div>
         <div class="schedule-row"><span class="schedule-time">13:30</span><span class="schedule-item">青森駅へ出発（約1時間）</span><span class="schedule-note"></span></div>
         <div class="schedule-row"><span class="schedule-time">14:45</span><span class="schedule-item">青森駅着・レンタカー返却・解散</span><span class="schedule-note"></span></div>
       </div>
     </div>
   </section>
 
+  <!-- ⑥ 津軽塗り風アクセントライン（CTA直前） -->
+  <div class="tsugaru-lacquer-band" aria-hidden="true"></div>
+
   <!-- CTA -->
   <section id="cta">
+    <!-- こぎん刺し透かし（CTAセクション） -->
+    <div class="kogin-watermark" style="opacity:0.07;" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <pattern id="koginCta" x="0" y="0" width="44" height="44" patternUnits="userSpaceOnUse">
+            <polygon points="22,2 42,22 22,42 2,22"
+              fill="none" stroke="rgba(245,240,232,0.9)" stroke-width="0.7"/>
+            <polygon points="22,9 35,22 22,35 9,22"
+              fill="none" stroke="rgba(245,240,232,0.9)" stroke-width="0.55"/>
+            <polygon points="22,15 29,22 22,29 15,22"
+              fill="none" stroke="rgba(245,240,232,0.9)" stroke-width="0.4"/>
+            <circle cx="22" cy="22" r="1.3" fill="rgba(245,240,232,0.9)"/>
+            <circle cx="0"  cy="0"  r="1"   fill="rgba(245,240,232,0.9)"/>
+            <circle cx="44" cy="0"  r="1"   fill="rgba(245,240,232,0.9)"/>
+            <circle cx="0"  cy="44" r="1"   fill="rgba(245,240,232,0.9)"/>
+            <circle cx="44" cy="44" r="1"   fill="rgba(245,240,232,0.9)"/>
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#koginCta)"/>
+      </svg>
+    </div>
+
     <div class="cta-bg">
       <div class="img-placeholder" style="width:100%;height:100%;opacity:0.3;">
         <span class="label" style="color:rgba(255,255,255,0.3);">画像⑭ CTA背景</span>
@@ -1190,26 +1383,57 @@
         日程・参加費の確定後に個別にご案内します。
         登録の際に、紹介者のお名前をご記載ください。
       </p>
-      <a href="#" class="cta-btn">ウェイティングリストに登録する</a>
+      <a href="https://docs.google.com/forms/d/1g5HMvJfXkalPNt0c-9ngX8KOporp4T1xakz9p85mFnA/edit" target="_blank" rel="noopener noreferrer" class="cta-btn">ウェイティングリストに登録する</a>
       <p class="cta-note">※ 登録後、主催者より個別にご連絡します</p>
+    </div>
+  </section>
+
+  <!-- LEGAL NOTES -->
+  <section id="legal-notes">
+    <div class="legal-notes-inner">
+      <span class="legal-notes-heading">Notes &amp; Disclaimer</span>
+      <ul class="legal-notes-list">
+        <li>本ページに掲載している写真・画像は一部イメージです。実際の体験内容・風景・施設とは異なる場合があります。</li>
+        <li>本プログラムは、旅行業法に基づく企画旅行・手配旅行には該当しません。現地での農業体験・交流・滞在コンテンツの提供サービスです。集合場所（青森駅）までの往復交通費および現地宿泊に関する費用は、参加者各自でのご手配・ご負担となります。</li>
+        <li>本プログラムは農作業・屋外活動を含みます。健康状態・体力に不安のある方は、お申し込み前にご相談ください。天候・農園の状況・その他やむを得ない事情により、プログラム内容・日程を変更または中止する場合があります。</li>
+        <li>参加費・キャンセルポリシー・特定商取引法に基づく表記の詳細は、参加費確定後に個別にご案内します。ウェイティングリストへの登録は参加確定・決済を伴うものではありません。</li>
+        <li>ウェイティングリストへのご登録により取得した個人情報（氏名・連絡先等）は、本プログラムのご案内・参加調整の目的にのみ使用し、第三者への提供は行いません。</li>
+        <li>本ページの内容・価格・日程は予告なく変更される場合があります。最新情報は主催者からの個別連絡にてご確認ください。</li>
+      </ul>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    <div class="footer-logo">DRAWCAL</div>
+    <div style="display:flex; align-items:center; gap:1rem;">
+      <div class="footer-logo">DRAWCAL</div>
+      <!-- ⑧ フッター こぎん刺し＋りんご装飾 -->
+      <div class="footer-kogin" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 44 44" fill="none">
+          <polygon points="22,2 42,22 22,42 2,22" stroke="rgba(245,240,232,1)" stroke-width="1.2" fill="none"/>
+          <polygon points="22,9 35,22 22,35 9,22" stroke="rgba(245,240,232,1)" stroke-width="0.9" fill="none"/>
+          <circle cx="22" cy="22" r="2" fill="rgba(245,240,232,1)"/>
+        </svg>
+        <svg width="11" height="14" viewBox="0 0 16 20" fill="rgba(245,240,232,0.8)">
+          <path d="M8,3.5 C8,3.5 8,1.5 10,0.8 C12,-0.2 13,0.8 12,2" stroke="rgba(245,240,232,0.8)" stroke-width="1.3" stroke-linecap="round" fill="none"/>
+          <path d="M8,2.5 C9.5,1 12,2 11.5,4 C11,5.5 8,4.5 8,2.5 Z" fill="rgba(245,240,232,0.8)"/>
+          <path d="M8,5 C5,5 2,7 1.5,10.5 C1,14 2.5,18 5,19 C6.2,19.5 7,19 8,19 C9,19 9.8,19.5 11,19 C13.5,18 15,14 14.5,10.5 C14,7 11,5 8,5 Z"/>
+        </svg>
+        <svg width="20" height="20" viewBox="0 0 44 44" fill="none">
+          <polygon points="22,2 42,22 22,42 2,22" stroke="rgba(245,240,232,1)" stroke-width="1.2" fill="none"/>
+          <polygon points="22,9 35,22 22,35 9,22" stroke="rgba(245,240,232,1)" stroke-width="0.9" fill="none"/>
+          <circle cx="22" cy="22" r="2" fill="rgba(245,240,232,1)"/>
+        </svg>
+      </div>
+    </div>
     <div class="footer-copy">© 2026 DRAWCAL — Connecting Orchards with Referral Energy</div>
   </footer>
 
   <script>
-    // ===== bfcache対策（戻るボタンで旧バージョンが表示されるのを防ぐ）=====
     window.addEventListener('pageshow', function(event) {
-      if (event.persisted) {
-        window.location.reload();
-      }
+      if (event.persisted) { window.location.reload(); }
     });
 
-    // ===== タブ切替 =====
     function switchTab(dayId, btn) {
       document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
       document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
@@ -1217,13 +1441,11 @@
       btn.classList.add('active');
     }
 
-    // ===== スクロールでナビ変化 =====
     const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => {
       nav.classList.toggle('scrolled', window.scrollY > 60);
     });
 
-    // ===== ハンバーガーメニュー =====
     const hamburger   = document.getElementById('hamburger');
     const mobileMenu  = document.getElementById('mobileMenu');
     let menuOpen = false;
@@ -1240,12 +1462,10 @@
       mobileMenu.classList.remove('open');
       document.body.style.overflow = '';
     }
-    // ESCキーで閉じる
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape' && menuOpen) closeMobileMenu();
     });
 
-    // ===== フェードアップアニメーション =====
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
