@@ -668,7 +668,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 2.5rem;
+      gap: 1.6rem;
       opacity: 0;
       transition: opacity 0.3s;
       pointer-events: none;
@@ -679,7 +679,7 @@
     }
     .mobile-menu a {
       font-family: 'Noto Serif JP', serif;
-      font-size: clamp(1.4rem, 6vw, 2rem);
+      font-size: clamp(1.1rem, 5vw, 1.6rem);
       font-weight: 300;
       color: var(--cream);
       text-decoration: none;
@@ -945,13 +945,378 @@
       .apple-watermark-wrap { width: 140px; }
       .local-divider .divider-icons { opacity: 0.3; }
     }
+
+    /* ===== ACCESS INFO ===== */
+    #access-info { background: var(--white); }
+    .access-headline { text-align: center; margin-bottom: clamp(2.5rem, 5vw, 4rem); }
+    .access-headline .section-label { justify-content: center; }
+    .access-headline .section-title { margin: 0 auto; }
+    .access-headline .section-body  { margin: 0 auto; text-align: center; }
+    .access-cards {
+      display: grid;
+      grid-template-columns: 1fr 60px 1fr;
+      gap: 0;
+      align-items: stretch;
+      max-width: 820px;
+      margin: 0 auto;
+      border: 1px solid rgba(44,36,22,0.1);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .access-card {
+      background: var(--cream);
+      padding: clamp(1.8rem, 3.5vw, 2.8rem);
+    }
+    .access-card.highlight {
+      background: var(--white);
+      border-right: 1px solid rgba(44,36,22,0.1);
+      position: relative;
+    }
+    .access-card.highlight::after {
+      content: 'おすすめ';
+      position: absolute;
+      top: 0; right: 0;
+      background: var(--green);
+      color: var(--cream);
+      font-size: 0.58rem;
+      letter-spacing: 0.12em;
+      padding: 0.22rem 0.8rem;
+      border-radius: 0 0 0 3px;
+    }
+    .access-card-route {
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      color: var(--sage);
+      margin-bottom: 1.2rem;
+      line-height: 1.5;
+    }
+    .access-mode-label {
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      color: var(--sage);
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .access-mode-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(44,36,22,0.1);
+    }
+    .access-time-wrap {
+      display: flex;
+      align-items: baseline;
+      gap: 0.18rem;
+      margin: 0.6rem 0 0.3rem;
+    }
+    .access-time-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.5rem, 8vw, 5.5rem);
+      font-weight: 300;
+      color: var(--earth);
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+    .access-time-unit {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: clamp(0.78rem, 1.5vw, 0.9rem);
+      font-weight: 300;
+      color: var(--sage);
+      letter-spacing: 0.03em;
+      padding-bottom: 0.5rem;
+    }
+    .access-time-sep {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 300;
+      color: var(--sage);
+      opacity: 0.4;
+      padding-bottom: 0.3rem;
+    }
+    .access-card-sub {
+      font-size: 0.72rem;
+      color: #7a6b5a;
+      line-height: 1.8;
+      margin-top: 0.5rem;
+    }
+    .access-price-box {
+      margin-top: 1.4rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid rgba(44,36,22,0.09);
+    }
+    .access-price-label {
+      font-size: 0.58rem;
+      letter-spacing: 0.2em;
+      color: var(--sage);
+      text-transform: uppercase;
+      margin-bottom: 0.45rem;
+    }
+    .access-price-value {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(1.05rem, 2.2vw, 1.3rem);
+      color: var(--brown);
+      font-weight: 400;
+      line-height: 1.35;
+    }
+    .access-price-note {
+      font-size: 0.68rem;
+      color: var(--sage);
+      margin-top: 0.4rem;
+      line-height: 1.7;
+    }
+    .access-vs {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--cream);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.85rem;
+      color: rgba(44,36,22,0.22);
+      letter-spacing: 0.05em;
+      user-select: none;
+      border-right: 1px solid rgba(44,36,22,0.1);
+    }
+    .access-footnote {
+      text-align: center;
+      font-size: 0.66rem;
+      color: var(--sage);
+      margin-top: clamp(1.5rem, 3vw, 2.5rem);
+      line-height: 1.75;
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ===== こんな人へ ===== */
+    #for-who {
+      background: var(--earth);
+      color: var(--cream);
+      padding: clamp(4rem, 8vw, 7rem) clamp(1.5rem, 8vw, 8rem);
+    }
+    #for-who .section-label { color: rgba(245,240,232,0.4); }
+    #for-who .section-title { color: var(--cream); margin-bottom: 2.5rem; }
+    .for-who-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      max-width: 640px;
+    }
+    .for-who-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.2rem;
+      padding: 1.4rem 0;
+      border-bottom: 1px solid rgba(245,240,232,0.08);
+    }
+    .for-who-item:last-child { border-bottom: none; }
+    .for-who-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 300;
+      color: var(--warm);
+      opacity: 0.5;
+      line-height: 1;
+      flex-shrink: 0;
+      padding-top: 0.15rem;
+    }
+    .for-who-text {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(0.95rem, 2vw, 1.1rem);
+      font-weight: 300;
+      color: rgba(245,240,232,0.88);
+      line-height: 1.75;
+    }
+
+    /* ===== STAFF PROFILE ===== */
+    #staff { background: var(--cream); }
+    .staff-name-en {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      color: var(--earth);
+      margin-bottom: 0.15rem;
+    }
+    .staff-name-ja {
+      font-size: 0.78rem;
+      letter-spacing: 0.15em;
+      color: var(--sage);
+      margin-bottom: 1.6rem;
+    }
+    .staff-bio {
+      font-size: var(--fs-body);
+      color: #4a3f30;
+      line-height: 1.95;
+      margin-bottom: 1.8rem;
+    }
+    .staff-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .staff-tag {
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      color: var(--sage);
+      border: 1px solid rgba(122,140,110,0.4);
+      padding: 0.25rem 0.8rem;
+      border-radius: 1px;
+    }
+
+    @media (max-width: 767px) {
+      .access-cards {
+        grid-template-columns: 1fr;
+        border: none;
+        gap: 0.8rem;
+      }
+      .access-card {
+        border: 1px solid rgba(44,36,22,0.1);
+        border-radius: 2px;
+      }
+      .access-card.highlight { border-right: 1px solid rgba(44,36,22,0.1); }
+      .access-vs {
+        border: none;
+        padding: 0.5rem 0;
+        background: transparent;
+      }
+      #for-who { padding: var(--gap) 1.4rem; }
+
+    }
+
+    /* ===== SCROLL PROGRESS BAR ===== */
+    #scroll-progress {
+      position: fixed;
+      top: 0; left: 0;
+      height: 2px;
+      width: 0%;
+      background: var(--green);
+      z-index: 301;
+      transition: width 0.08s linear;
+    }
+
+    /* ===== SECTION NAV ===== */
+    #section-nav {
+      position: fixed;
+      top: 0;
+      left: 0; right: 0;
+      z-index: 99;
+      display: flex;
+      align-items: stretch;
+      background: rgba(245,240,232,0.97);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(44,36,22,0.08);
+      transform: translateY(-100%);
+      transition: transform 0.4s cubic-bezier(0.4,0,0.2,1),
+                  top 0.3s ease;
+      overflow: hidden;
+    }
+    #section-nav.visible {
+      transform: translateY(0);
+    }
+    /* メインnavがスクロールで縮んだら下に配置 */
+    #section-nav.nav-scrolled-offset {
+      top: 56px;
+    }
+    .snav-item {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 0.55rem 0.3rem 0;
+      cursor: pointer;
+      position: relative;
+      text-decoration: none;
+      transition: background 0.2s;
+      border-right: 1px solid rgba(44,36,22,0.05);
+      overflow: hidden;
+    }
+    .snav-item:last-child { border-right: none; }
+    .snav-item:hover { background: rgba(44,36,22,0.035); }
+    .snav-label {
+      font-size: 0.58rem;
+      letter-spacing: 0.13em;
+      color: var(--sage);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      padding-bottom: 0.45rem;
+      transition: color 0.25s, font-weight 0.25s;
+      max-width: 100%;
+    }
+    .snav-bar {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: transparent;
+      transition: background 0.3s;
+    }
+    .snav-item.active .snav-label {
+      color: var(--earth);
+      font-weight: 500;
+    }
+    .snav-item.active .snav-bar {
+      background: var(--green);
+    }
+    /* ヒーロー上では非表示 */
+    #section-nav.in-hero { transform: translateY(-100%); }
+
+    /* scroll-margin-top: section nav + main nav の合計高さ */
+    section[id] { scroll-margin-top: 96px; }
+
+    @media (max-width: 767px) {
+      #section-nav { display: none; }
+      section[id] { scroll-margin-top: 60px; }
+    }
   </style>
 </head>
 <body>
 
+  <!-- SCROLL PROGRESS -->
+  <div id="scroll-progress" aria-hidden="true"></div>
+
+  <!-- SECTION NAV -->
+  <nav id="section-nav" aria-label="セクションナビゲーション">
+    <a href="#intro"    class="snav-item" data-section="intro">
+      <span class="snav-label">What is this?</span>
+      <span class="snav-bar"></span>
+    </a>
+    <a href="#days"     class="snav-item" data-section="days">
+      <span class="snav-label">3 Days Story</span>
+      <span class="snav-bar"></span>
+    </a>
+    <a href="#for-who"  class="snav-item" data-section="for-who">
+      <span class="snav-label">For Who?</span>
+      <span class="snav-bar"></span>
+    </a>
+    <a href="#moments"  class="snav-item" data-section="moments">
+      <span class="snav-label">Only Here</span>
+      <span class="snav-bar"></span>
+    </a>
+    <a href="#farmer"   class="snav-item" data-section="farmer">
+      <span class="snav-label">Your Host Farmer</span>
+      <span class="snav-bar"></span>
+    </a>
+    <a href="#overview" class="snav-item" data-section="overview">
+      <span class="snav-label">Tour Overview</span>
+      <span class="snav-bar"></span>
+    </a>
+  </nav>
+
+
   <!-- MOBILE DRAWER -->
   <div class="mobile-menu" id="mobileMenu">
-    <a href="drawcal_about.html" onclick="closeMobileMenu()">DRAWCALとは</a>
+    <a href="#intro"    onclick="closeMobileMenu()">What is this?</a>
+    <a href="#days"     onclick="closeMobileMenu()">3 Days Story</a>
+    <a href="#for-who"  onclick="closeMobileMenu()">For Who?</a>
+    <a href="#moments"  onclick="closeMobileMenu()">Only Here</a>
+    <a href="#farmer"   onclick="closeMobileMenu()">Your Host Farmer</a>
+    <a href="#overview" onclick="closeMobileMenu()">Tour Overview</a>
     <a href="#cta" class="mobile-cta" onclick="closeMobileMenu()">ウェイティングリスト登録</a>
   </div>
 
@@ -959,8 +1324,8 @@
   <nav id="nav">
     <a href="#" class="nav-logo">DRAWCAL</a>
     <div class="nav-links">
-      <a href="drawcal_about.html" class="nav-about">DRAWCALとは</a>
-      <a href="https://docs.google.com/forms/d/1g5HMvJfXkalPNt0c-9ngX8KOporp4T1xakz9p85mFnA/edit" target="_blank" rel="noopener noreferrer" class="nav-cta">ウェイティングリスト登録</a>
+      <a href="drawcal_about" class="nav-about">DRAWCALとは</a>
+      <a href="https://docs.google.com/forms/d/1g5HMvJfXkalPNt0c-9ngX8KOporp4T1xakz9p85mFnA/viewform" target="_blank" rel="noopener noreferrer" class="nav-cta">ウェイティングリスト登録</a>
     </div>
     <button class="hamburger" id="hamburger" aria-label="メニュー" onclick="toggleMobileMenu()">
       <span></span><span></span><span></span>
@@ -982,7 +1347,7 @@
     <div class="hero-content">
       <span class="hero-badge">MONITOR TOUR 2026 · KUROISHI, AOMORI</span>
       <h1 class="hero-title">ドローカル、<br>津軽。</h1>
-      <p class="hero-sub">りんご農家と飲んで、作業して、温泉に入る。<br>青森・黒石で過ごす濃くて短い2泊3日。</p>
+      <p class="hero-sub">農家を、りんごを、津軽を知る。<br>ガイドブックには載っていない2泊3日。</p>
     </div>
     <div class="hero-scroll">SCROLL</div>
   </section>
@@ -1003,7 +1368,7 @@
       <p class="section-body">
         パッケージ旅行でも、農業体験でもない。
         農家と居酒屋で乾杯して、草むらに寝転んで、
-        温泉で肩を並べる。そういう3日間です。<br><br>
+        温泉で肩を並べる。ドローカルな「日常」に混ぜてもらう、そういう3日間です。<br><br>
         参加できるのは、紹介された人だけ。
         だから、農家も本音で話してくれます。
       </p>
@@ -1094,7 +1459,7 @@
       <div class="day-text">
         <div class="day-number">02</div>
         <span class="day-label">Day 2 · 農園に入る日（1）</span>
-        <h3 class="day-title">一玉に、全神経を注ぐ<br>「選別」の儀式。</h3>
+        <h3 class="day-title">一玉に全神経を注ぐオーディション、<br>審査員はあなたです。</h3>
         <p class="day-body">
           津軽の静かな朝の空気を吸ってから、農園に入ります。
           園地で行う「摘果（てきか）」は、一つの枝に実った5〜6つの実から、最も優れた一玉だけを残す命の選別。
@@ -1155,6 +1520,27 @@
         <div class="img-placeholder" style="width:100%;height:100%;display:none;">
           <span class="label">画像⑤ 弘前（HIROSAKI.png）</span>
         </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FOR WHO -->
+  <section id="for-who" class="fade-up">
+    <span class="section-label">For Who</span>
+    <h2 class="section-title">こんな人に、<br>来てほしい。</h2>
+    <div class="for-who-list">
+      <div class="for-who-item">
+        <span class="for-who-num">01</span>
+        <p class="for-who-text">地元の人の「当たり前」に、<br>旅の醍醐味を感じる人</p>
+      </div>
+      <div class="for-who-item">
+        <span class="for-who-num">02</span>
+        <p class="for-who-text">観光客として見る景色に、<br>少し飽きてきた人</p>
+      </div>
+      <div class="for-who-item">
+        <span class="for-who-num">03</span>
+        <p class="for-who-text">汗をかいた日の夜の乾杯が、<br>一番好きな人</p>
       </div>
     </div>
   </section>
@@ -1238,6 +1624,110 @@
         Coming Soon
       </p>
     </div>
+  </section>
+
+
+
+  <!-- STAFF PROFILE -->
+  <section id="staff" class="fade-up" style="padding: clamp(2.5rem,5vw,4rem) clamp(1.5rem,8vw,8rem); background: var(--cream); border-top: 1px solid rgba(44,36,22,0.07);">
+    <div style="max-width: 640px;">
+      <span class="section-label">Your Guide</span>
+      <div class="staff-name-en" style="margin-top:0.5rem;">Taro Yamada</div>
+      <div class="staff-name-ja">山田 太郎（アテンド担当）</div>
+      <p class="staff-bio">
+        青森県弘前市出身。大学卒業後、東京で広告業に10年従事。
+        2020年に帰郷し、津軽のりんご農家と都市部の人々をつなぐ活動を始める。
+        「旅のガイドというより、農家の友人として紹介したい」がモットー。
+      </p>
+      <div class="staff-tags">
+        <span class="staff-tag">津軽出身</span>
+        <span class="staff-tag">弘前在住</span>
+        <span class="staff-tag">農村コーディネーター</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ローカル区切り（農家 / アクセス） -->
+  <div class="local-divider" aria-hidden="true">
+    <div class="divider-icons">
+      <svg width="18" height="22" viewBox="0 0 16 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8,3.5 C8,3.5 8,1.5 10,0.8 C12,-0.2 13,0.8 12,2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" fill="none"/>
+        <path d="M8,2.5 C9.5,1 12,2 11.5,4 C11,5.5 8,4.5 8,2.5 Z"/>
+        <path d="M8,5 C5,5 2,7 1.5,10.5 C1,14 2.5,18 5,19 C6.2,19.5 7,19 8,19 C9,19 9.8,19.5 11,19 C13.5,18 15,14 14.5,10.5 C14,7 11,5 8,5 Z"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- ACCESS INFO -->
+  <section id="access-info" class="fade-up">
+    <div class="access-headline">
+      <span class="section-label" style="justify-content:center;">Getting Here</span>
+      <h2 class="section-title">実は近い、青森。</h2>
+      <p class="section-body">
+        「本州最北端の青森は遠い。」という思い込み、1度外してみて下さい。<br>
+        羽田から飛行機に乗れば、１時間ちょっとで青森空港に到着します。<br>
+        しかも、早めの予約なら新幹線より安くなることも。
+      </p>
+    </div>
+
+    <div class="access-cards">
+
+      <!-- 飛行機 -->
+      <div class="access-card highlight fade-up">
+        <div class="access-mode-label">Airplane / 飛行機</div>
+        <div class="access-card-route">羽田空港 → 青森空港</div>
+        <div class="access-time-wrap">
+          <span class="access-time-num">75</span>
+          <span class="access-time-unit">分</span>
+        </div>
+        <div class="access-card-sub">
+          青森空港 → 青森駅：バスで約35分（900円）<br>
+          JAL 毎日複数便運航
+        </div>
+        <div class="access-price-box">
+          <div class="access-price-label">早割利用時の目安（6月）</div>
+          <div class="access-price-value">7,000〜14,000円</div>
+          <div class="access-price-note">
+            JAL先得などの早割利用時の参考価格。<br>
+            早期予約で新幹線より大幅に安くなることも。
+          </div>
+        </div>
+      </div>
+
+      <!-- vs -->
+      <div class="access-vs">vs</div>
+
+      <!-- 新幹線 -->
+      <div class="access-card fade-up">
+        <div class="access-mode-label">Shinkansen / 新幹線</div>
+        <div class="access-card-route">東京駅 → 新青森駅（はやぶさ）</div>
+        <div class="access-time-wrap">
+          <span class="access-time-num">3</span>
+          <span class="access-time-unit">時間</span>
+          <span class="access-time-sep">·</span>
+          <span class="access-time-num" style="font-size:clamp(2rem,4.5vw,3.5rem);">10</span>
+          <span class="access-time-unit">分</span>
+        </div>
+        <div class="access-card-sub">
+          新青森駅 → 青森駅：在来線で約6分<br>
+          1日15本以上運行（最速3時間5分）
+        </div>
+        <div class="access-price-box">
+          <div class="access-price-label">通常指定席</div>
+          <div class="access-price-value">17,470円〜</div>
+          <div class="access-price-note">
+            えきねっとトクだ値・早特利用で割引あり。<br>
+            早割でも飛行機より高くなる場合が多い。
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="access-footnote">
+      ※ 運賃・所要時間は2026年4月時点の目安です。実際の金額は予約時期・便・座席クラスにより異なります。<br>
+      ※ 本ツアーの集合場所は青森駅（11:30）です。往復の交通手段は各自でご手配ください。
+    </p>
   </section>
 
   <!-- OVERVIEW -->
@@ -1383,7 +1873,7 @@
         日程・参加費の確定後に個別にご案内します。
         登録の際に、紹介者のお名前をご記載ください。
       </p>
-      <a href="https://docs.google.com/forms/d/1g5HMvJfXkalPNt0c-9ngX8KOporp4T1xakz9p85mFnA/edit" target="_blank" rel="noopener noreferrer" class="cta-btn">ウェイティングリストに登録する</a>
+      <a href="https://docs.google.com/forms/d/1g5HMvJfXkalPNt0c-9ngX8KOporp4T1xakz9p85mFnA/viewform" target="_blank" rel="noopener noreferrer" class="cta-btn">まず、ウェイティングリストに名前を入れる</a>
       <p class="cta-note">※ 登録後、主催者より個別にご連絡します</p>
     </div>
   </section>
@@ -1430,6 +1920,65 @@
   </footer>
 
   <script>
+
+    // ── Scroll progress bar ──
+    const progressEl = document.getElementById('scroll-progress');
+    function updateProgress() {
+      const total = document.body.scrollHeight - window.innerHeight;
+      const pct   = total > 0 ? (window.scrollY / total) * 100 : 0;
+      progressEl.style.width = pct + '%';
+    }
+    window.addEventListener('scroll', updateProgress, { passive: true });
+
+    // ── Section nav: show/hide & active tracking ──
+    const sectionNav  = document.getElementById('section-nav');
+    const snavItems   = document.querySelectorAll('.snav-item[data-section]');
+    const heroEl      = document.getElementById('hero');
+    const mainNav     = document.getElementById('nav');
+
+    // ヒーロー終了後にセクションnavを表示
+    const heroObserver = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        sectionNav.classList.add('in-hero');
+        sectionNav.classList.remove('visible');
+      } else {
+        sectionNav.classList.remove('in-hero');
+        sectionNav.classList.add('visible');
+      }
+    }, { threshold: 0 });
+    heroObserver.observe(heroEl);
+
+    // メインnavのスクロール後オフセット調整
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 60) {
+        sectionNav.classList.add('nav-scrolled-offset');
+      } else {
+        sectionNav.classList.remove('nav-scrolled-offset');
+      }
+    }, { passive: true });
+
+    // アクティブセクション検出
+    const trackSections = Array.from(document.querySelectorAll('section[id]'));
+    const sectionTrackObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          snavItems.forEach(item => {
+            const isActive = item.dataset.section === id;
+            item.classList.toggle('active', isActive);
+            // アクティブ項目をスクロールして見えるように
+            if (isActive && sectionNav.scrollWidth > sectionNav.clientWidth) {
+              item.scrollIntoView({ inline: 'nearest', block: 'nearest' });
+            }
+          });
+        }
+      });
+    }, {
+      threshold: 0.15,
+      rootMargin: '-10% 0px -80% 0px'
+    });
+    trackSections.forEach(s => sectionTrackObs.observe(s));
+
     window.addEventListener('pageshow', function(event) {
       if (event.persisted) { window.location.reload(); }
     });
