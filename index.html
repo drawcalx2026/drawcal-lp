@@ -395,27 +395,6 @@
       line-height: 1.9;
       margin-bottom: 2rem;
     }
-    .farmer-quote {
-      border-left: 2px solid var(--warm);
-      padding-left: 1.4rem;
-      margin-top: 2rem;
-    }
-    .farmer-quote p {
-      font-family: 'Noto Serif JP', serif;
-      font-size: clamp(0.95rem, 1.8vw, 1.15rem);
-      font-weight: 300;
-      color: rgba(245,240,232,0.9);
-      line-height: 1.85;
-      font-style: italic;
-    }
-    .farmer-quote cite {
-      display: block;
-      margin-top: 0.8rem;
-      font-size: 0.72rem;
-      color: rgba(245,240,232,0.45);
-      letter-spacing: 0.1em;
-      font-style: normal;
-    }
 
     /* ===== OVERVIEW ===== */
     #overview { background: var(--white); }
@@ -761,7 +740,6 @@
         gap: 2rem;
       }
       .farmer-img { height: 260px; }
-      .farmer-quote p { font-size: 0.95rem; }
       .overview-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
@@ -1528,11 +1506,11 @@
   <!-- FOR WHO -->
   <section id="for-who" class="fade-up">
     <span class="section-label">For Who</span>
-    <h2 class="section-title">こんな人に、<br>おすすめです。</h2>
+    <h2 class="section-title">こんな人に、<br>来てほしい。</h2>
     <div class="for-who-list">
       <div class="for-who-item">
         <span class="for-who-num">01</span>
-        <p class="for-who-text">地元の人の「当たり前」や「日常」に、<br>旅の醍醐味を感じる人</p>
+        <p class="for-who-text">地元の人の「当たり前」に、<br>旅の醍醐味を感じる人</p>
       </div>
       <div class="for-who-item">
         <span class="for-who-num">02</span>
@@ -1548,7 +1526,7 @@
   <!-- MOMENTS -->
   <section id="moments" class="fade-up">
     <span class="section-label">Only Here</span>
-    <h2 class="section-title">この旅にしかない、<br>４つの「ドローカル」。</h2>
+    <h2 class="section-title">この旅にしかない、<br>４つのドローカル。</h2>
     <div class="moments-grid">
 
       <div class="moment-card">
@@ -1613,28 +1591,50 @@
   <!-- FARMER -->
   <section id="farmer">
     <div class="farmer-img">
-      <div class="img-placeholder" style="width:100%;height:100%;">
-        <span class="label">Coming Soon</span>
-      </div>
+      <img src="FUJITA.JPG" alt="藤田方海さん" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;">
     </div>
     <div>
       <span class="section-label">Your Host Farmer</span>
-      <h2 class="section-title">一緒に過ごす<br>農家のこと。</h2>
-      <p class="farmer-profile" style="opacity:0.5; font-style:italic;">
-        Coming Soon
+      <h2 class="section-title">一緒に過ごす<br>農家さんのこと。</h2>
+
+      <div style="margin-bottom: 1.6rem;">
+        <p style="font-family: 'Noto Serif JP', serif; font-size: clamp(1.1rem, 2vw, 1.35rem); color: var(--cream); letter-spacing: 0.05em; font-weight: 300;">藤田 方海さん</p>
+        <a href="https://dragonapple.base.ec/" target="_blank" rel="noopener" style="display:inline-block;margin-top:0.35rem;font-size:0.68rem;letter-spacing:0.12em;color:rgba(245,240,232,0.45);text-decoration:none;border-bottom:1px solid rgba(245,240,232,0.2);padding-bottom:1px;transition:color 0.2s;" onmouseover="this.style.color='rgba(245,240,232,0.75)'" onmouseout="this.style.color='rgba(245,240,232,0.45)'">龍ノ口りんご園 ↗</a>
+      </div>
+
+      <p class="farmer-profile">
+        青森市出身。大学卒業後は都内で農家として2年間働き、その後、都内の金融機関に勤務。
+        「やっぱり農業を」と決意し、黒石市の地域おこし協力隊として青森へUターン。
+        修行期間を経て、りんご農家として独立。
       </p>
-    </div>
+      <p class="farmer-profile" style="margin-top: -0.8rem;">
+        伝統的な栽培方法を大切にしながら、地域に根ざしたりんご作りを追求している。
+        一方で、クラウドファンディングを活用した販路開拓など、新しい挑戦も続ける。
+        「作る」と「売る」の両方を、自分ごととして動かしている農家さんです。
+      </p>
+      </div>
   </section>
 
 
 
   <!-- STAFF PROFILE -->
-  <section id="staff" class="fade-up" style="padding: clamp(2.5rem,5vw,4rem) clamp(1.5rem,8vw,8rem); background: var(--cream); border-top: 1px solid rgba(44,36,22,0.07);">
-    <div style="max-width: 640px;">
-      <span class="section-label">Your Guide</span>
-      <p class="farmer-profile" style="opacity:0.5; font-style:italic; margin-top:0.8rem;">
-        Coming Soon
-      </p>
+  <section id="staff" class="fade-up" style="padding: clamp(2rem,4vw,3rem) clamp(1.5rem,8vw,8rem); background: var(--cream); border-top: 1px solid rgba(44,36,22,0.07);">
+    <div style="max-width: 720px; display: grid; grid-template-columns: 72px 1fr; gap: 1.6rem; align-items: start;">
+      <!-- 写真スペース（小） -->
+      <div style="width: 72px; height: 72px; border-radius: 50%; overflow: hidden; flex-shrink: 0; margin-top: 0.2rem;">
+        <img src="KUDO.PNG" alt="くどう" style="width:100%;height:100%;object-fit:cover;object-position:center center;display:block;transform:scale(1.3);transform-origin:center center;">
+      </div>
+      <!-- テキスト -->
+      <div>
+        <span class="section-label" style="margin-bottom:0.5rem;">Your Guide</span>
+        <p style="font-family: 'Noto Serif JP', serif; font-size: clamp(0.95rem, 1.6vw, 1.05rem); color: var(--earth); letter-spacing: 0.04em; font-weight: 300; margin-bottom: 0.6rem;">くどう</p>
+        <p style="font-size: var(--fs-body); color: var(--sage); line-height: 1.85;">
+          このツアーは、工藤の知人か、知人の知人——極々少人数に限定した、信頼できる紹介制で実施します。当面はモニターツアー形式での開催です。
+        </p>
+        <p style="font-size: var(--fs-body); color: var(--sage); line-height: 1.85; margin-top: 0.6rem;">
+          地元青森を心から楽しんでもらいながら、りんごのこと・地域のことをローカル視点で伝えられるよう、小さなサプライズをたくさん仕込んで、強く心に刻まれる瞬間を提供します。
+        </p>
+      </div>
     </div>
   </section>
 
@@ -1717,7 +1717,7 @@
 
     <p class="access-footnote">
       ※ 運賃・所要時間は2026年4月時点の目安です。実際の金額は予約時期・便・座席クラスにより異なります。<br>
-      ※ 本ツアーの集合場所は青森駅（11:30）です。往復の交通手段は各自でご手配ください。
+      ※ 本ツアーの集合場所は青森駅（13:00）です。往復の交通手段は各自でご手配ください。
     </p>
   </section>
 
@@ -1747,7 +1747,7 @@
         </tr>
         <tr>
           <td>集合</td>
-          <td>青森駅 11:30</td>
+          <td>青森駅 13:00</td>
         </tr>
         <tr>
           <td>宿泊</td>
@@ -1785,10 +1785,10 @@
     <div id="tab-day1" class="tab-content active">
       <div class="schedule-day">
         <div class="schedule-day-title">DAY 1 ｜ 津軽に入る日</div>
-        <div class="schedule-row"><span class="schedule-time">11:30</span><span class="schedule-item">青森駅集合・レンタカーピックアップ</span><span class="schedule-note"></span></div>
+        <div class="schedule-row"><span class="schedule-time">13:00</span><span class="schedule-item">青森駅集合・レンタカーピックアップ</span><span class="schedule-note"></span></div>
         <div class="schedule-row"><span class="schedule-time">12:00〜16:30</span><span class="schedule-item">青森市内観光（三内丸山遺跡 or ワ・ラッセ、A-factory等）</span><span class="schedule-note"></span></div>
         <div class="schedule-row"><span class="schedule-time">16:30</span><span class="schedule-item">黒石へ出発（約1時間）</span><span class="schedule-note"></span></div>
-        <div class="schedule-row"><span class="schedule-time">17:45</span><span class="schedule-item">宿チェックイン</span><span class="schedule-note"></span></div>
+        <div class="schedule-row"><span class="schedule-time">17:45</span><span class="schedule-item">蔵泊チェックイン・荷物置き</span><span class="schedule-note"></span></div>
         <div class="schedule-row"><span class="schedule-time">19:00</span><span class="schedule-item">農家いきつけの焼き鳥屋 ← 農家と乾杯</span><span class="schedule-note"></span></div>
         <div class="schedule-row"><span class="schedule-time">21:30頃</span><span class="schedule-item">黒石スナック街へ徒歩で2軒目（任意）</span><span class="schedule-note"></span></div>
         <div class="schedule-row"><span class="schedule-time">23:00頃</span><span class="schedule-item">代行で蔵泊に帰還・翌日オリエンテーション</span><span class="schedule-note"></span></div>
@@ -1799,15 +1799,15 @@
       <div class="schedule-day">
         <div class="schedule-day-title">DAY 2 ｜ 農園に入る日</div>
         <div class="schedule-row"><span class="schedule-time">06:00〜08:00</span><span class="schedule-item">【任意】朝風呂、ランニング等</span><span class="schedule-note"></span></div>
-        <div class="schedule-row"><span class="schedule-time">08:00</span><span class="schedule-item">蔵泊にて各自朝食</span><span class="schedule-note"></span></div>
+        <div class="schedule-row"><span class="schedule-time">08:00</span><span class="schedule-item">蔵泊キッチンで朝食</span><span class="schedule-note"></span></div>
         <div class="schedule-row"><span class="schedule-time">09:00</span><span class="schedule-item">農園へ出発</span><span class="schedule-note"></span></div>
-        <div class="schedule-row"><span class="schedule-time">09:15〜11:15</span><span class="schedule-item">摘果作業（農家の目利き・判断の解説つき）</span><span class="schedule-note"></span></div>
-        <div class="schedule-row"><span class="schedule-time">11:15〜12:00</span><span class="schedule-item">農家の休憩体験（農園でコーヒー・草むらに寝転ぶ）</span><span class="schedule-note"></span></div>
-        <div class="schedule-row"><span class="schedule-time">12:00〜13:00</span><span class="schedule-item">農園ランチ</span><span class="schedule-note"></span></div>
-        <div class="schedule-row"><span class="schedule-time">13:00〜15:00</span><span class="schedule-item">午後の作業</span><span class="schedule-note"></span></div>
-        <div class="schedule-row"><span class="schedule-time">15:00〜16:00</span><span class="schedule-item">お買い物クエスト（黒石直売所・BBQ食材調達）</span><span class="schedule-note"></span></div>
-        <div class="schedule-row"><span class="schedule-time">16:00〜17:00</span><span class="schedule-item">近隣温泉</span><span class="schedule-note"></span></div>
-        <div class="schedule-row"><span class="schedule-time">17:30〜20:30</span><span class="schedule-item">蔵泊BBQ</span><span class="schedule-note"></span></div>
+        <div class="schedule-row"><span class="schedule-time">09:15〜13:00</span><span class="schedule-item">摘果作業（農家の目利き・判断の解説つき）</span><span class="schedule-note"></span></div>
+        <div class="schedule-row"><span class="schedule-time">13:00〜12:30</span><span class="schedule-item">農家の休憩体験（農園でコーヒー・草むらに寝転ぶ）</span><span class="schedule-note"></span></div>
+        <div class="schedule-row"><span class="schedule-time">12:30〜13:30</span><span class="schedule-item">農家と昼食・経営の本音トーク</span><span class="schedule-note"></span></div>
+        <div class="schedule-row"><span class="schedule-time">14:00〜15:30</span><span class="schedule-item">午後の軽作業</span><span class="schedule-note"></span></div>
+        <div class="schedule-row"><span class="schedule-time">15:30〜16:30</span><span class="schedule-item">お買い物クエスト（黒石直売所・BBQ食材調達）</span><span class="schedule-note"></span></div>
+        <div class="schedule-row"><span class="schedule-time">16:45〜18:00</span><span class="schedule-item">近隣温泉</span><span class="schedule-note"></span></div>
+        <div class="schedule-row"><span class="schedule-time">18:30〜20:30</span><span class="schedule-item">蔵泊BBQ</span><span class="schedule-note"></span></div>
         <div class="schedule-row"><span class="schedule-time">21:00〜</span><span class="schedule-item">焚き火を囲みながら振り返り</span><span class="schedule-note"></span></div>
       </div>
     </div>
